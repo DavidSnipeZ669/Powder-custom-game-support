@@ -1,6 +1,8 @@
 **Guide: How to Add Custom Game Support to Powder after discontinuation**
 
 
+
+
 This guide provides a step-by-step process for adding new, unsupported games to the discontinued Powder desktop application (v8.0.2 Standalone). Since the app is no longer maintained, this is the only way to enable event detection for newer titles.
 
 The process involves creating configuration files that tell Powder how to identify in-game events and modifying the application's core files to make it recognize your new game.
@@ -32,6 +34,8 @@ Gameplay Footage: A video of you playing the game, showing what the on-screen no
 
 
 **Part 1: Understanding the File Structure**
+
+
 
 The Powder app's files are primarily located in C:\Users\[YourUsername]\AppData\Local\Programs\powder-desktop\. Inside, you will find a resources folder, which is our main target.
 
@@ -70,25 +74,138 @@ Navigate to the ai-configs\visual_cues\ folder and create another folder with yo
 A. events.json
 This file defines the events Powder should recognize.
 
-Example events.json for Delta Force:
+Example events.json for Delta Force (currently doesn't work):
 
 {
-  "name": "DeltaForce",
+  "name": "DF",
   "events": [
-    { "name": "kill", "displayName": "Kill", "icon": "fps-kill", ... },
-    { "name": "headshot", "displayName": "Headshot", "icon": "headshot", ... },
-    { "name": "doubleKill", "displayName": "Double Kill", "icon": "double-kill", ... },
-    { "name": "gadgetDestroyed", "displayName": "Gadget Destroyed", "icon": "gadget-destroyed", ... },
-    { "name": "victory", "displayName": "Victory", "icon": "overall-victory", ... },
-    { "name": "defeat", "displayName": "Defeat", "icon": "overall-lose", ... }
-    // ... add all other events you want to track
+    {
+      "name": "victory",
+      "displayName": "Victory",
+      "icon": "overall-victory",
+      "default": true,
+      "tooltip": "When you win a game.",
+      "eventScore": 30,
+      "automontage" : {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 3,
+        "offsetAfter": 3,
+        "effectTypes": []
+      }
+    },
+    {
+      "name": "defeat",
+      "displayName": "Defeat",
+      "icon": "overall-lose",
+      "default": false,
+      "tooltip": "When you lose a game.",
+      "eventScore": 5,
+      "automontage" : {
+        "primary": false,
+        "secondary": false,
+        "offsetBefore": 0,
+        "offsetAfter": 0,
+        "effectTypes": []
+      }
+    },
+    {
+      "name": "doubleKill",
+      "displayName": "Double Kill",
+      "icon": "double-kill",
+      "default": true,
+      "tooltip": "When you kill 2 enemies within a short time of one another.",
+      "eventScore": 25,
+      "automontage" : {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+      }
+    },
+    {
+      "name": "tripleKill",
+      "displayName": "Triple Kill",
+      "icon": "triple-kill",
+      "default": true,
+      "tooltip": "When you kill 3 enemies within a short time of one another.",
+      "eventScore": 40,
+      "automontage" : {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+      }
+    },
+    {
+      "name": "quadraKill",
+      "displayName": "Quadra Kill",
+      "icon": "quadra-kill",
+      "default": true,
+      "tooltip": "When you kill 4 enemies within a short time of one another.",
+      "eventScore": 60,
+      "automontage" : {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+      }
+    },
+    {
+      "name": "longShot",
+      "displayName": "Long Shot",
+      "icon": "long-range-kill",
+      "default": true,
+      "tooltip": "When you kill an enemy from a long distance.",
+      "eventScore": 30,
+      "automontage" : {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 3,
+        "offsetAfter": 2,
+        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+      }
+    },
+    {
+      "name": "headshot",
+      "displayName": "Headshot",
+      "icon": "headshot",
+      "default": true,
+      "tooltip": "When you headshot an opponent.",
+      "eventScore": 15,
+      "automontage" : {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+      }
+    },
+    {
+      "name": "preciseLongShot",
+      "displayName": "Precise Long Shot",
+      "icon": "sniper-kill",
+      "default": true,
+      "tooltip": "When you kill an enemy with a precise shot from a very long distance.",
+      "eventScore": 50,
+      "automontage" : {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 3,
+        "offsetAfter": 2,
+        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+      }
+    }
   ]
 }
 
 B. game_postprocess.lua
 This is the most important file. It tells the OCR engine where to look on the screen and what text to match for each event.
 
-Example game_postprocess.lua for Delta Force (currently not correctly configured):
+Example game_postprocess.lua for Delta Force (currently doesn't work):
 ```
 local smoothing = require("postprocess.smoothing")
 local event = require("postprocess.event")
@@ -96,25 +213,14 @@ local utils = require("postprocess.utils")
 local paddle_ocr = require("postprocess.paddle_ocr")
 local cues_data = require("postprocess.cues_data")
 
---[[                DF - Delta Force
+--[[                DF - Delta Force 
     Visual events :
         no visual model
 
     Ocr events (Paddle) :
-        kill
-        headshot
-        doubleKill
-        tripleKill
-        longShot
-        preciseLongShot
-        gadgetDestroyed
-        assist
-        objectiveCaptured
-        highValueObjective
-        defeat
-        
-    doc :
-    
+        doubleKill, tripleKill, quadraKill, longShot, preciseLongShot,
+        headshot, victory, defeat
+
 ]]--
 
 -- fps config
@@ -129,24 +235,14 @@ local visualCuesConfig = {}
 local ocrConfig = {
     crops = {
         {
-            -- Catches all score pop-ups (kills, streaks, headshots, long shots, assists, etc.)
+            -- Catches all in-game accolades at the bottom-center of the screen
             cropName = "ScoreMessage",
             debug = false,
-            cropCoords = { 0.4, 0.65, 0.6, 0.85 }, -- Consolidated and enlarged crop for all score events
+            -- Coordinates confirmed for 2560x1440.
+            cropCoords = { 0.420, 0.730, 0.580, 0.820 }, 
             detectorDilateDiameter = 3,
-            detectorMinimumArea = 5,
+            detectorMinimumArea = 10,
             detectorMargin = 5,
-            recogniserStretchVertical = false,
-            restrictedCharacters = ""
-        },
-        {
-            -- Catches game status messages like 'OBJECTIVE CAPTURED'
-            cropName = "GameStatus",
-            debug = false,
-            cropCoords = { 0.35, 0.25, 0.65, 0.35 }, -- New crop for top-middle notifications
-            detectorDilateDiameter = 3,
-            detectorMinimumArea = 100,
-            detectorMargin = 10,
             recogniserStretchVertical = false,
             restrictedCharacters = ""
         },
@@ -154,7 +250,8 @@ local ocrConfig = {
             -- Catches the final 'DEFEAT' or 'VICTORY' message
             cropName = "GameResult",
             debug = false,
-            cropCoords = { 0.4, 0.45, 0.6, 0.55 }, -- Adjusted based on video
+            -- Coordinates confirmed for 2560x1440.
+            cropCoords = { 0.250, 0.450, 0.750, 0.550 },
             detectorDilateDiameter = 5,
             detectorMinimumArea = 1000,
             detectorMargin = 30,
@@ -166,32 +263,18 @@ local ocrConfig = {
 
 local setEventsSpecs = function (cues)
     -- Events functions ------------------
-    local scoreEvents = {
-        { event = 'tripleKill',        match = { 'TRIPLE KILL' },      score = 85 },
-        { event = 'doubleKill',        match = { 'DOUBLE KILL' },      score = 85 },
-        { event = 'preciseLongShot',   match = { 'PRECISE LONG SHOT' },score = 80 },
-        { event = 'longShot',          match = { 'LONG SHOT' },        score = 80 },
-        { event = 'headshot',          match = { 'HEADSHOT' },         score = 80 },
-        { event = 'gadgetDestroyed',   match = { 'GADGET DESTROYED' }, score = 75 },
-        { event = 'assist',            match = { 'ASSIST' },           score = 70 },
-        { event = 'kill',              match = { 'KILL', 'HIT' },      score = 70 }
+    local accoladeEvents = {
+        { event = 'preciseLongShot',   match = { 'Precise Long Shot' }, score = 85 },
+        { event = 'longShot',          match = { 'Long Shot' },         score = 85 },
+        { event = 'quadraKill',        match = { 'QUADRA KILL' },       score = 85 },
+        { event = 'tripleKill',        match = { 'TRIPLE KILL' },       score = 85 },
+        { event = 'doubleKill',        match = { 'DOUBLE KILL' },       score = 85 },
+        { event = 'headshot',          match = { 'Headshot' },          score = 85 }
     }
-    local function detectScoreEvents(frameIndex)
-        for _, config in ipairs(scoreEvents) do
+    local function detectAccoladeEvents(frameIndex)
+        for _, config in ipairs(accoladeEvents) do
             if paddle_ocr.checkFuture(frameIndex, 2, 'ScoreMessage', config.match, config.score) then
                 return config.event, frameIndex - 2
-            end
-        end
-    end
-
-    local gameStatusEvents = {
-        { event = 'highValueObjective', match = { 'HIGH-VALUE OBJECTIVE CAPTURED' }, score = 80 },
-        { event = 'objectiveCaptured',  match = { 'OBJECTIVE', 'CAPTURED' },        score = 80 }
-    }
-    local function detectGameStatus(frameIndex)
-        for _, config in ipairs(gameStatusEvents) do
-            if paddle_ocr.checkFuture(frameIndex, 2, 'GameStatus', config.match, config.score) then
-                return config.event
             end
         end
     end
@@ -211,20 +294,16 @@ local setEventsSpecs = function (cues)
     --------------------------------------
 
     local functionsList = {
-        detectScoreEvents, detectGameStatus, detectEndGame
+        detectAccoladeEvents, detectEndGame
     }
 
     local eventsSpecs = {
-        kill =                { name = "kill",                slack = 8  },
-        headshot =            { name = "headshot",            slack = 8  },
         doubleKill =          { name = "doubleKill",          slack = 16 },
         tripleKill =          { name = "tripleKill",          slack = 16 },
-        longShot =            { name = "longShot",            slack = 8  },
-        preciseLongShot =     { name = "preciseLongShot",     slack = 8  },
-        gadgetDestroyed =     { name = "gadgetDestroyed",     slack = 8  },
-        assist =              { name = "assist",              slack = 8  },
-        objectiveCaptured =   { name = "objectiveCaptured",   slack = 12 },
-        highValueObjective =  { name = "highValueObjective",  slack = 12 },
+        quadraKill =          { name = "quadraKill",          slack = 16 },
+        longShot =            { name = "longShot",            slack = 12 },
+        preciseLongShot =     { name = "preciseLongShot",     slack = 12 },
+        headshot =            { name = "headshot",            slack = 12 },
         victory =             { name = "victory",             slack = 30 },
         defeat =              { name = "defeat",              slack = 30 }
     }
@@ -284,6 +363,8 @@ return {
     get_paddle_ocr_config = get_paddle_ocr_config,
     get_fps = get_fps,
 }
+
+
 
 ```
 
