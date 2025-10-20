@@ -1,4 +1,4 @@
-Guide: How to Add Custom Game Support to Powder
+Guide: How to Add Custom Game Support to Powder after discontinuation
 
 
 This guide provides a step-by-step process for adding new, unsupported games to the discontinued Powder desktop application (v8.0.2 Standalone). Since the app is no longer maintained, this is the only way to enable event detection for newer titles.
