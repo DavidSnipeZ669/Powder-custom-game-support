@@ -75,7 +75,7 @@ A. events.json
 This file defines the events Powder should recognize.
 
 Example events.json for Delta Force (currently doesn't work):
-
+```
 {
   "name": "DF",
   "events": [
@@ -201,7 +201,7 @@ Example events.json for Delta Force (currently doesn't work):
     }
   ]
 }
-
+```
 B. game_postprocess.lua
 This is the most important file. It tells the OCR engine where to look on the screen and what text to match for each event.
 
