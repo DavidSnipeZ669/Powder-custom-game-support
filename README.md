@@ -13,7 +13,7 @@ Prerequisites
 
 Before you begin, you will need:
 
-Powder Standalone App: The Powder_v8.0.2_standalone.exe file, installed on your system.
+Powder Standalone App: The Powder_v8.0.2_standalone.exe file, installed on your system. (found at either https://wheybags.com/assets/Powder_v8.0_final.exe or releases)
 
 A Code Editor: VS Code is highly recommended as it can search the contents of files within an entire folder. A basic text editor like Notepad will also work.
 
