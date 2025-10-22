@@ -1,0 +1,1 @@
+These are the visual_cues files for Delta force that I currently have, I need help with them as they are either taking a long time to analyse (over an hour for a 27 minute video), not working and creating unsuccessful analysis, not detecting any events, any combination of the previously mentioned or just outright don't work. 
