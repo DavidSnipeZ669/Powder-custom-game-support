@@ -56,7 +56,7 @@ local ocrConfig = {
             detectorDilateDiameter = 3,
             detectorMinimumArea = 10,
             detectorMargin = 5,
-            recogniserStretchVertical = true,
+            recogniserStretchVertical = false,
             restrictedCharacters = ""
         },
         {
@@ -68,7 +68,7 @@ local ocrConfig = {
             detectorDilateDiameter = 5,
             detectorMinimumArea = 1000,
             detectorMargin = 30,
-            recogniserStretchVertical = true,
+            recogniserStretchVertical = false,
             restrictedCharacters = ""
         }
     }
