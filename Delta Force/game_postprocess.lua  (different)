@@ -1,0 +1,182 @@
+local smoothing = require("postprocess.smoothing")
+local event = require("postprocess.event")
+local utils = require("postprocess.utils")
+local paddle_ocr = require("postprocess.paddle_ocr")
+local cues_data = require("postprocess.cues_data")
+
+--[[                DF   -- Delta Force Visual and OCR Cues Configuration File
+    -----------------------------------------------------------------------------
+    22/10/2025 
+    Author : DavidGaming669
+    Version : 1.00
+    -----------------------------------------------------------------------------
+    Visual events :
+        no visual model
+    -----------------------------------------------------------------------------
+    OCR events :
+        Paddle OCR is used to detect in-game text events.
+    -----------------------------------------------------------------------------
+    Game Information :
+        Game : Delta Force (2024)
+    
+    Monitor Size : 2560x1440
+    Game Resolution : 2560x1440
+
+    Ocr events (Paddle) :
+        kill
+        headshot
+        vehicule Destroyed
+        double Kill
+        triple Kill
+        quadra Kill
+        reaper Mode
+        victory
+        defeat
+        
+    
+]]--
+
+-- fps config
+local get_fps = function()
+    return 4
+end
+
+-- visual cues
+local visualCuesConfig = {}
+
+-- ocr cues
+local ocrConfig = {
+    crops = {
+        {
+            -- Catches all in-game accolades at the bottom-center of the screen
+            cropName = "ScoreMessage",
+            debug = true,
+            -- Coordinates confirmed for 2560x1440.
+            cropCoords = { 0.391, 0.662, 0.605, 0.845 }, 
+            detectorDilateDiameter = 3,
+            detectorMinimumArea = 10,
+            detectorMargin = 5,
+            recogniserStretchVertical = true,
+            restrictedCharacters = ""
+        },
+        {
+            -- Catches the final 'DEFEAT' or 'VICTORY' message
+            cropName = "GameResult",
+            debug = true,
+            -- Coordinates confirmed for 2560x1440.
+            cropCoords = { 0.281, 0.127, 0.705, 0.454 },
+            detectorDilateDiameter = 5,
+            detectorMinimumArea = 1000,
+            detectorMargin = 30,
+            recogniserStretchVertical = true,
+            restrictedCharacters = ""
+        }
+    }
+}
+
+local setEventsSpecs = function (cues)
+    -- Events functions ------------------
+    local accoladeEvents = {
+        { event = 'preciseLongShot',   match = { 'Precise Long Shot' }, score = 85 },
+        { event = 'longShot',          match = { 'Long Shot' },         score = 85 },
+        { event = 'quadraKill',        match = { 'QUADRA KILL' },       score = 85 },
+        { event = 'tripleKill',        match = { 'TRIPLE KILL' },       score = 85 },
+        { event = 'doubleKill',        match = { 'DOUBLE KILL' },       score = 85 },
+        { event = 'headshot',          match = { 'Headshot' },          score = 85 },
+        { event = 'kill',              match = { 'Kill' },              score = 80 }
+    }
+    local function detectAccoladeEvents(frameIndex)
+        for _, config in ipairs(accoladeEvents) do
+            if paddle_ocr.checkFuture(frameIndex, 2, 'ScoreMessage', config.match, config.score) then
+                return config.event, frameIndex - 2
+            end
+        end
+    end
+
+    local endGameDetectors = {
+        { event = 'victory', match = { 'VICTORY' }, score = 70 },
+        { event = 'defeat',  match = { 'DEFEAT' },  score = 70 }
+    }
+    local function detectEndGame (frameIndex)
+        for _, config in ipairs(endGameDetectors) do
+            if paddle_ocr.checkFuture(frameIndex, 2, 'GameResult', config.match, config.score) then
+                return config.event
+            end
+        end
+    end
+  
+    --------------------------------------
+
+    local functionsList = {
+        detectAccoladeEvents, detectEndGame
+    }
+
+    local eventsSpecs = {
+        kill =                { name = "kill",                slack = 10 },
+        doubleKill =          { name = "doubleKill",          slack = 16 },
+        tripleKill =          { name = "tripleKill",          slack = 16 },
+        quadraKill =          { name = "quadraKill",          slack = 16 },
+        longShot =            { name = "longShot",            slack = 12 },
+        preciseLongShot =     { name = "preciseLongShot",     slack = 12 },
+        headshot =            { name = "headshot",            slack = 12 },
+        victory =             { name = "victory",             slack = 30 },
+        defeat =              { name = "defeat",              slack = 30 }
+    }
+
+    return eventsSpecs, functionsList
+end
+
+-- DO NOT EDIT BELOW THIS LINE -----------------------------------------------------------
+local get_paddle_ocr_config = function()
+    return ocrConfig
+end
+
+-- compute events for both ocr and visual
+local computeEvents = function(modelOutputs, ocrOutput, frameTimes, paddleOcrOutput)
+    local cues = {}
+
+    if next(modelOutputs) ~= nil then
+        local visualCues = smoothing.run(visualCuesConfig, modelOutputs, frameTimes)
+        for cueName, cueValues in pairs(visualCues) do
+            cues[cueName] = cueValues
+        end
+    else
+        cues['frameTimes'] = frameTimes
+    end
+
+    if next(ocrOutput) ~= nil then
+        for cueName, cueValues in pairs(ocrOutput) do
+            cues[cueName] = cueValues
+        end
+    end
+
+    if next(paddleOcrOutput) ~= nil then
+        for cueName, cueValues in pairs(paddleOcrOutput) do
+            cues[cueName] = cueValues
+            cueValues.confidences = {}
+            for i, value in ipairs(cueValues.results) do
+                if value == nil or value:match("^%s*$") then
+                    cueValues.confidences[i] = 0
+                else
+                    cueValues.confidences[i] = 0.5
+                end
+            end
+        end
+    end
+
+    local result = utils.TCTformatCuesData(cues)
+    local eventsSpecs, functionsList = setEventsSpecs(cues)
+    cues_data.cues = cues
+    local eventsTable = event.computeEvents(cues, eventsSpecs, functionsList)
+    result.events = eventsTable
+
+    return result
+end
+
+return {
+    computeEvents = computeEvents,
+    get_paddle_ocr_config = get_paddle_ocr_config,
+    get_fps = get_fps,
+}
+
+
