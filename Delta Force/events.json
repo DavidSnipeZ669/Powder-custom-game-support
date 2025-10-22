@@ -8,7 +8,7 @@
       "default": true,
       "tooltip": "When you win a game.",
       "eventScore": 30,
-      "automontage" : {
+      "automontage": {
         "primary": false,
         "secondary": true,
         "offsetBefore": 3,
@@ -23,42 +23,12 @@
       "default": false,
       "tooltip": "When you lose a game.",
       "eventScore": 5,
-      "automontage" : {
+      "automontage": {
         "primary": false,
         "secondary": false,
         "offsetBefore": 0,
         "offsetAfter": 0,
         "effectTypes": []
-      }
-    },
-    {
-      "name": "kill",
-      "displayName": "Kill",
-      "icon": "fps-kill",
-      "default": true,
-      "tooltip": "When you kill an opponent.",
-      "eventScore": 10,
-      "automontage" : {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 2,
-        "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
-      }
-    },
-    {
-      "name": "headshot",
-      "displayName": "Headshot",
-      "icon": "headshot",
-      "default": true,
-      "tooltip": "When you headshot an opponent.",
-      "eventScore": 15,
-      "automontage" : {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 2,
-        "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
       }
     },
     {
@@ -68,12 +38,20 @@
       "default": true,
       "tooltip": "When you kill 2 enemies within a short time of one another.",
       "eventScore": 25,
-      "automontage" : {
+      "automontage": {
         "primary": true,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
@@ -83,12 +61,20 @@
       "default": true,
       "tooltip": "When you kill 3 enemies within a short time of one another.",
       "eventScore": 40,
-      "automontage" : {
+      "automontage": {
         "primary": true,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
@@ -98,57 +84,89 @@
       "default": true,
       "tooltip": "When you kill 4 enemies within a short time of one another.",
       "eventScore": 60,
-      "automontage" : {
+      "automontage": {
         "primary": true,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
-      "name": "reaperMode",
-      "displayName": "Reaper Mode",
-      "icon": "streak",
+      "name": "longShot",
+      "displayName": "Long Shot",
+      "icon": "long-range-kill",
       "default": true,
-      "tooltip": "When you kill 5 enemies or more within a short time of one another.",
-      "eventScore": 80,
-      "automontage" : {
+      "tooltip": "When you kill an enemy from a long distance.",
+      "eventScore": 30,
+      "automontage": {
         "primary": true,
         "secondary": false,
-        "offsetBefore": 2,
+        "offsetBefore": 3,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
-      "name": "vehiculeDestroyed",
-      "displayName": "Vehicule Destroyed",
-      "icon": "vehicule-destroyed",
+      "name": "headshot",
+      "displayName": "Headshot",
+      "icon": "headshot",
       "default": true,
-      "tooltip": "When you destroyed an enemy vehicule.",
+      "tooltip": "When you headshot an opponent.",
       "eventScore": 15,
-      "automontage" : {
+      "automontage": {
         "primary": true,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
-      "name": "knifeKill",
-      "displayName": "Knife Kill",
-      "icon": "revenge-kill",
+      "name": "preciseLongShot",
+      "displayName": "Precise Long Shot",
+      "icon": "sniper-kill",
       "default": true,
-      "tooltip": "When you kill an enemy hand to hand.",
+      "tooltip": "When you kill an enemy with a precise shot from a very long distance.",
       "eventScore": 50,
-      "automontage" : {
+      "automontage": {
         "primary": true,
         "secondary": false,
-        "offsetBefore": 2,
+        "offsetBefore": 3,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     }
   ]
