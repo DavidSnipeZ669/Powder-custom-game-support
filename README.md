@@ -385,7 +385,7 @@ Navigate to the resources folder: cd "C:\Users\[YourUsername]\AppData\Local\Prog
 
 Back up your app.asar file! Copy it and rename the copy to app.asar.bak.
 
-Extract the archive by running: asar extract app.asar app-unpacked
+Extract the archive by running:``` asar extract app.asar app-unpacked```
 
 2. Add Your Game to the Master List
 
@@ -399,7 +399,7 @@ Copy an existing game's entry and modify it for your game. Add it to the list, e
 
 Example Entry to Add:
 
-{"name":"Delta Force","steamId":"2507950","powderGameId":"DF","libraries":["STEAM"],"twitchId":"14336","urlSlug":"delta-force","description":"Delta Force marks the return of the classic first-person shooter, offering large-scale multiplayer combat across land, sea, and air. Engage in tactical, objective-based warfare with realistic weaponry and operator skills in a modern military setting.","productionDatabasePowderGameId":"","developmentDatabasePowderGameId":"","website": "https://www.playdeltaforce.com","free2play": true},
+```{"name":"Delta Force","steamId":"2507950","powderGameId":"DF","libraries":["STEAM"],"twitchId":"14336","urlSlug":"delta-force","description":"Delta Force marks the return of the classic first-person shooter, offering large-scale multiplayer combat across land, sea, and air. Engage in tactical, objective-based warfare with realistic weaponry and operator skills in a modern military setting.","productionDatabasePowderGameId":"","developmentDatabasePowderGameId":"","website": "https://www.playdeltaforce.com","free2play": true},```
 
 
 
@@ -416,7 +416,7 @@ Go back to your PowerShell window (still in the resources directory).
 
 Run the following command to pack your modified files into a new app.asar:
 
-"asar pack app-unpacked app.asar"
+```asar pack app-unpacked app.asar```
 
 This will overwrite the original app.asar file. The app-unpacked folder will not be deleted.
 
@@ -432,5 +432,16 @@ If the game appears but events aren't detected:
 Double-check the text in your .lua file's match fields. It must be an exact match to what appears on screen.
 
 Adjust the cropCoords in the .lua file. This is the most common issue. Your screen resolution may be different, causing the OCR to look in the wrong place. Make small, incremental changes and re-test.
+
+
+**Part 5: Accessing the Developer Console**
+
+reopen app.asar files, head to "powder-desktop\resources\app-unpacked\dist\main\main.js", open it in VS Code once again. 
+Search (Ctrl+F) "Browser"
+You should find a line that looks like ```n=new o.BrowserWindow({width:1280,height:720,minWidth:1100,minHeight:600,show:!1,frame:!1,titleBarStyle:g?"customButtonsOnHover":"hidden",roundedCorners:!1,backgroundColor:"#1d1d1d",webPreferences:{preload:E,webviewTag:!0,devTools:b}})```
+You'll modify this to ```n=new o.BrowserWindow({width:1280,height:720,minWidth:1100,minHeight:600,show:!1,frame:!1,titleBarStyle:g?"customButtonsOnHover":"hidden",roundedCorners:!1,backgroundColor:"#1d1d1d",webPreferences:{preload:E,webviewTag:!0,devTools:true}}), n.webContents.openDevTools()```
+Double check you have an app.asar.bak file (backup app.asar)
+Now you know you have this bak file, safe main.js and rerun ```asar pack app-unpacked app.asar```
+Now launch Powder and you'll be in the Developer Console, to deactivate, just click the cross at the top right of the console.
 
 Once everything is working, you can safely delete the app-unpacked folder.
