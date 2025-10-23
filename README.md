@@ -441,7 +441,7 @@ Search (Ctrl+F) "Browser"
 You should find a line that looks like ```n=new o.BrowserWindow({width:1280,height:720,minWidth:1100,minHeight:600,show:!1,frame:!1,titleBarStyle:g?"customButtonsOnHover":"hidden",roundedCorners:!1,backgroundColor:"#1d1d1d",webPreferences:{preload:E,webviewTag:!0,devTools:b}})```
 You'll modify this to ```n=new o.BrowserWindow({width:1280,height:720,minWidth:1100,minHeight:600,show:!1,frame:!1,titleBarStyle:g?"customButtonsOnHover":"hidden",roundedCorners:!1,backgroundColor:"#1d1d1d",webPreferences:{preload:E,webviewTag:!0,devTools:true}}), n.webContents.openDevTools()```
 Double check you have an app.asar.bak file (backup app.asar)
-Now you know you have this bak file, safe main.js and rerun ```asar pack app-unpacked app.asar```
+Now you know you have this bak file, save main.js and rerun ```asar pack app-unpacked app.asar```
 Now launch Powder and you'll be in the Developer Console, to close it for just that session, just click the cross at the top right of the console, to deactivate permanently, rename the current app.asar to something else (or delete it) and rename the backup app.asar.bak to app.asar.
 
 Once everything is working, you can safely delete the app-unpacked folder.
