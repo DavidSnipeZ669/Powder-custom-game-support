@@ -445,3 +445,42 @@ Now you know you have this bak file, save main.js and rerun ```asar pack app-unp
 Now launch Powder and you'll be in the Developer Console, to close it for just that session, just click the cross at the top right of the console, to deactivate permanently, rename the current app.asar to something else (or delete it) and rename the backup app.asar.bak to app.asar.
 
 Once everything is working, you can safely delete the app-unpacked folder.
+
+
+**Part 6: Accessing the Backend (Main Process) Console for Advanced Debugging**
+
+The standard developer console (from Part 5) is great for UI issues. However, the actual video analysis and Lua script execution happens in a hidden background process (the "Main Process"). To see the real errors when your event detection fails, you need to connect to this backend console.
+
+Create a Backend Debug Shortcut:
+
+Right click on your desktop or in a folder, go down to "new" -> Shortcut and paste the following
+
+```C:\Users\[YourUsername]\AppData\Local\Programs\powder-desktop\Powder.exe --inspect-brk=5858```
+
+You can name this shortcut anything you want that will allow you to remember what it does, I recommend "Powder (Backend Debug)".
+
+*Connect the DevTools*
+
+The order of these steps is important.
+
+First, make sure Powder is completely closed. (Open task manager and end process)
+
+Open your Chromium-based browser (Chrome, Opera GX, Edge, firefox, etc) and navigate to chrome://inspect.
+
+You should now be on a page with a URL that looks like "opera://inspect/#devices"
+
+Now click the "Open dedicated DevTools for Node" link which will open a DevTools window.
+
+Click the "Connection" tab and add the address "localhost:5858"
+
+Open your Backend Debug shortcut and move over to the DevTools window, you should be moved to Sources where you will see the main.js file has opened.
+
+The Powder Backend will be paused on the first line of code, indicated by a "Debugger paused" banner.
+
+Click the Resume script execution button (a blue "play" icon ►) in the top-right of the DevTools panel to allow the app to finish loading.
+
+The main Powder application window will now launch. The DevTools window you opened is now connected to the backend.
+
+Move to the Console tab and switch to Powder.
+
+Do what you did to get the error, and you will see the detailed error messages from your Lua/JSON files in the DevTools window.
