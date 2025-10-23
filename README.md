@@ -483,4 +483,4 @@ The main Powder application window will now launch. The DevTools window you open
 
 Move to the Console tab and switch to Powder.
 
-Do what you did to get the error, and you will see the detailed error messages from your Lua/JSON files in the DevTools window.
+Do what you did to get the error, and you will see the detailed error messages from your Lua/JSON files (assuming it's game support that is failing) in the DevTools window.
