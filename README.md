@@ -86,7 +86,7 @@ Example events.json for Delta Force (currently doesn't work):
       "default": true,
       "tooltip": "When you win a game.",
       "eventScore": 30,
-      "automontage" : {
+      "automontage": {
         "primary": false,
         "secondary": true,
         "offsetBefore": 3,
@@ -101,7 +101,7 @@ Example events.json for Delta Force (currently doesn't work):
       "default": false,
       "tooltip": "When you lose a game.",
       "eventScore": 5,
-      "automontage" : {
+      "automontage": {
         "primary": false,
         "secondary": false,
         "offsetBefore": 0,
@@ -110,63 +110,26 @@ Example events.json for Delta Force (currently doesn't work):
       }
     },
     {
-      "name": "doubleKill",
-      "displayName": "Double Kill",
-      "icon": "double-kill",
+      "name": "kill",
+      "displayName": "Kill",
+      "icon": "fps-kill",
       "default": true,
-      "tooltip": "When you kill 2 enemies within a short time of one another.",
-      "eventScore": 25,
-      "automontage" : {
+      "tooltip": "When you kill an opponent.",
+      "eventScore": 10,
+      "automontage": {
         "primary": true,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
-      }
-    },
-    {
-      "name": "tripleKill",
-      "displayName": "Triple Kill",
-      "icon": "triple-kill",
-      "default": true,
-      "tooltip": "When you kill 3 enemies within a short time of one another.",
-      "eventScore": 40,
-      "automontage" : {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 2,
-        "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
-      }
-    },
-    {
-      "name": "quadraKill",
-      "displayName": "Quadra Kill",
-      "icon": "quadra-kill",
-      "default": true,
-      "tooltip": "When you kill 4 enemies within a short time of one another.",
-      "eventScore": 60,
-      "automontage" : {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 2,
-        "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
-      }
-    },
-    {
-      "name": "longShot",
-      "displayName": "Long Shot",
-      "icon": "long-range-kill",
-      "default": true,
-      "tooltip": "When you kill an enemy from a long distance.",
-      "eventScore": 30,
-      "automontage" : {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 3,
-        "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
@@ -176,27 +139,181 @@ Example events.json for Delta Force (currently doesn't work):
       "default": true,
       "tooltip": "When you headshot an opponent.",
       "eventScore": 15,
-      "automontage" : {
+      "automontage": {
         "primary": true,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     },
     {
-      "name": "preciseLongShot",
-      "displayName": "Precise Long Shot",
-      "icon": "sniper-kill",
+      "name": "doubleKill",
+      "displayName": "Double Kill",
+      "icon": "double-kill",
       "default": true,
-      "tooltip": "When you kill an enemy with a precise shot from a very long distance.",
-      "eventScore": 50,
-      "automontage" : {
+      "tooltip": "When you kill 2 enemies within a short time of one another.",
+      "eventScore": 25,
+      "automontage": {
         "primary": true,
         "secondary": false,
-        "offsetBefore": 3,
+        "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": ["greyDistortionArrow", "veryFastThenSlow", "fastThenSlow", "flashScope", "slowFastSlow", "lensShake", "backToColor"]
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "tripleKill",
+      "displayName": "Triple Kill",
+      "icon": "triple-kill",
+      "default": true,
+      "tooltip": "When you kill 3 enemies within a short time of one another.",
+      "eventScore": 40,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "quadraKill",
+      "displayName": "Quadra Kill",
+      "icon": "quadra-kill",
+      "default": true,
+      "tooltip": "When you kill 4 enemies within a short time of one another.",
+      "eventScore": 60,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "reaperMode",
+      "displayName": "Reaper Mode",
+      "icon": "streak",
+      "default": true,
+      "tooltip": "When you kill 5 enemies or more within a short time of one another.",
+      "eventScore": 80,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "vehiculeDestroyed",
+      "displayName": "Vehicule Destroyed",
+      "icon": "vehicule-destroyed",
+      "default": true,
+      "tooltip": "When you destroyed an enemy vehicule.",
+      "eventScore": 15,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "squadWipe",
+      "displayName": "Squad Wipe",
+      "icon": "kingslayer",
+      "default": true,
+      "tooltip": "When you kill an entire enemy squad.",
+      "eventScore": 25,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "knifeKill",
+      "displayName": "Knife Kill",
+      "icon": "revenge-kill",
+      "default": true,
+      "tooltip": "When you kill an enemy hand to hand.",
+      "eventScore": 50,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
       }
     }
   ]
@@ -213,19 +330,29 @@ local utils = require("postprocess.utils")
 local paddle_ocr = require("postprocess.paddle_ocr")
 local cues_data = require("postprocess.cues_data")
 
---[[                DF - Delta Force 
+--[[                DF   -- Delta Force Visual and OCR Cues Configuration File
+    -----------------------------------------------------------------------------
+    22/10/2025 
+    Author : DavidGaming669 
+    Version : 1.08
+    -----------------------------------------------------------------------------
     Visual events :
         no visual model
+    -----------------------------------------------------------------------------
+    OCR events :
+        Paddle OCR is used to detect in-game text events.
+    -----------------------------------------------------------------------------
+    Game Information :
+        Game : Delta Force (2024)
+    
+    Monitor Size : 2560x1440
+    Game Resolution : 2560x1440
 
-    Ocr events (Paddle) :
-        doubleKill, tripleKill, quadraKill, longShot, preciseLongShot,
-        headshot, victory, defeat
-
-]]--
-
--- fps config
+    Template game_postprocess.lua modified for DF from BF6 version.
+    
+]]-- FPS Configuration 
 local get_fps = function()
-    return 4
+    return 5  -- Changed to more standard FPS
 end
 
 -- visual cues
@@ -235,23 +362,29 @@ local visualCuesConfig = {}
 local ocrConfig = {
     crops = {
         {
-            -- Catches all in-game accolades at the bottom-center of the screen
-            cropName = "ScoreMessage",
+            cropName = "KillMessage",
             debug = false,
-            -- Coordinates confirmed for 2560x1440.
-            cropCoords = { 0.420, 0.730, 0.580, 0.820 }, 
+            cropCoords = { 0.400, 0.660, 0.600, 0.825 }, -- Centered kill feed area
             detectorDilateDiameter = 3,
-            detectorMinimumArea = 10,
+            detectorMinimumArea = 5,
             detectorMargin = 5,
             recogniserStretchVertical = false,
             restrictedCharacters = ""
         },
         {
-            -- Catches the final 'DEFEAT' or 'VICTORY' message
+            cropName = "StreakMessage",
+            debug = false,
+            cropCoords = { 0.325, 0.125, 0.675, 0.225 }, -- Multi-kill/streek notification area
+            detectorDilateDiameter = 3,
+            detectorMinimumArea = 5,
+            detectorMargin = 5,
+            recogniserStretchVertical = false,
+            restrictedCharacters = ""
+        },
+        {
             cropName = "GameResult",
             debug = false,
-            -- Coordinates confirmed for 2560x1440.
-            cropCoords = { 0.250, 0.450, 0.750, 0.550 },
+            cropCoords = { 0.400, 0.225, 0.600, 0.375 }, -- Victory/Defeat screen
             detectorDilateDiameter = 5,
             detectorMinimumArea = 1000,
             detectorMargin = 30,
@@ -263,30 +396,61 @@ local ocrConfig = {
 
 local setEventsSpecs = function (cues)
     -- Events functions ------------------
-    local accoladeEvents = {
-        { event = 'preciseLongShot',   match = { 'Precise Long Shot' }, score = 85 },
-        { event = 'longShot',          match = { 'Long Shot' },         score = 85 },
-        { event = 'quadraKill',        match = { 'QUADRA KILL' },       score = 85 },
-        { event = 'tripleKill',        match = { 'TRIPLE KILL' },       score = 85 },
-        { event = 'doubleKill',        match = { 'DOUBLE KILL' },       score = 85 },
-        { event = 'headshot',          match = { 'Headshot' },          score = 85 }
+    local killDetectors = {
+        { event = 'kill',              match = { 'KILL', 'ELIMINATED' },                       score = 85 },
+        { event = 'headshot',          match = { 'HEADSHOT', 'HS' },                           score = 80 },
+        { event = 'gadgetDestroyed',   match = { 'GADGET DESTROYED', 'DEVICE DESTROYED' },     score = 75 }
     }
-    local function detectAccoladeEvents(frameIndex)
-        for _, config in ipairs(accoladeEvents) do
-            if paddle_ocr.checkFuture(frameIndex, 2, 'ScoreMessage', config.match, config.score) then
-                return config.event, frameIndex - 2
+    
+    local streakDetectors = {
+        { event = 'meleeKill',         match = { 'MELEE KILL', 'TAKEDOWN', 'KNIFE KILL' },     score = 80 },
+        { event = 'doubleKill',        match = { 'DOUBLE KILL' },                              score = 80 },
+        { event = 'tripleKill',        match = { 'TRIPLE KILL' },                              score = 80 },
+        { event = 'quadraKill',        match = { 'QUADRA KILL', 'QUADRUPLE KILL' },            score = 80 },
+        { event = 'reaperMode',        match = { 'REAPER MODE', 'MULTI KILL', 'KILLING SPREE', 'ULTRA KILL' }, score = 80 } 
+    }
+    
+    local function detectKill(frameIndex)
+        local detectedEvent = nil
+
+        -- First check for basic kill events
+        for _, config in ipairs(killDetectors) do
+            if paddle_ocr.checkFuture(frameIndex, 2, 'KillMessage', config.match, config.score) then
+                detectedEvent = config.event
+                break
             end
+        end
+
+        -- If we found a kill, check for streak events in nearby frames
+        if detectedEvent ~= nil then 
+            for i = -2, 6 do  -- Check frames before and after
+                for _, config in ipairs(streakDetectors) do
+                    if paddle_ocr.checkValues(cues_data.cues['StreakMessage'].results[frameIndex + i], config.match, config.score) then
+                        detectedEvent = config.event
+                        break
+                    end
+                end
+            end
+        end
+
+        return detectedEvent, frameIndex - 2
+    end
+
+    local squadWipeDetectors = { 'SQUAD WIPE', 'ENEMY SQUAD ELIMINATED', 'TEAM WIPE', 'SQUAD ELIMINATED' }
+    local function detectSquadWipe(frameIndex)
+        if paddle_ocr.checkFuture(frameIndex, 2, 'StreakMessage', squadWipeDetectors, 80) then
+            return 'squadWipe', frameIndex
         end
     end
 
     local endGameDetectors = {
-        { event = 'victory', match = { 'VICTORY' }, score = 70 },
-        { event = 'defeat',  match = { 'DEFEAT' },  score = 70 }
+        { event = 'victory', match = { 'VICTORY', 'MISSION SUCCESS', 'SUCCESS' }, score = 75 },
+        { event = 'defeat',  match = { 'DEFEAT', 'MISSION FAILED', 'FAILED' },    score = 75 }
     }
-    local function detectEndGame (frameIndex)
+    local function detectEndGame(frameIndex)
         for _, config in ipairs(endGameDetectors) do
             if paddle_ocr.checkFuture(frameIndex, 2, 'GameResult', config.match, config.score) then
-                return config.event
+                return config.event, frameIndex
             end
         end
     end
@@ -294,18 +458,23 @@ local setEventsSpecs = function (cues)
     --------------------------------------
 
     local functionsList = {
-        detectAccoladeEvents, detectEndGame
+        detectKill, 
+        detectSquadWipe,
+        detectEndGame
     }
 
     local eventsSpecs = {
-        doubleKill =          { name = "doubleKill",          slack = 16 },
-        tripleKill =          { name = "tripleKill",          slack = 16 },
-        quadraKill =          { name = "quadraKill",          slack = 16 },
-        longShot =            { name = "longShot",            slack = 12 },
-        preciseLongShot =     { name = "preciseLongShot",     slack = 12 },
-        headshot =            { name = "headshot",            slack = 12 },
-        victory =             { name = "victory",             slack = 30 },
-        defeat =              { name = "defeat",              slack = 30 }
+        kill =              { name = "kill",              slack = 8  },
+        headshot =          { name = "headshot",          slack = 8  },
+        doubleKill =        { name = "doubleKill",        slack = 12 },
+        tripleKill =        { name = "tripleKill",        slack = 12 },
+        quadraKill =        { name = "quadraKill",        slack = 12 },
+        reaperMode =        { name = "reaperMode",        slack = 12 },
+        victory =           { name = "victory",           slack = 30 },
+        defeat =            { name = "defeat",            slack = 30 },
+        gadgetDestroyed =   { name = "gadgetDestroyed",   slack = 8  },
+        squadWipe =         { name = "squadWipe",         slack = 10 },
+        meleeKill =         { name = "meleeKill",         slack = 8  }
     }
 
     return eventsSpecs, functionsList
@@ -343,7 +512,7 @@ local computeEvents = function(modelOutputs, ocrOutput, frameTimes, paddleOcrOut
                 if value == nil or value:match("^%s*$") then
                     cueValues.confidences[i] = 0
                 else
-                    cueValues.confidences[i] = 0.5
+                    cueValues.confidences[i] = 0.7  -- Increased confidence for better detection
                 end
             end
         end
@@ -363,7 +532,6 @@ return {
     get_paddle_ocr_config = get_paddle_ocr_config,
     get_fps = get_fps,
 }
-
 
 
 ```
