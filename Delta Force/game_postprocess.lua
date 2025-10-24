@@ -7,8 +7,8 @@ local cues_data = require("postprocess.cues_data")
 --[[                DF   -- Delta Force Visual and OCR Cues Configuration File
     -----------------------------------------------------------------------------
     22/10/2025 
-    Author : DavidGaming669
-    Version : 1.00
+    Author : DavidGaming669 
+    Version : 1.08
     -----------------------------------------------------------------------------
     Visual events :
         no visual model
@@ -22,23 +22,11 @@ local cues_data = require("postprocess.cues_data")
     Monitor Size : 2560x1440
     Game Resolution : 2560x1440
 
-    Ocr events (Paddle) :
-        kill
-        headshot
-        vehicule Destroyed
-        double Kill
-        triple Kill
-        quadra Kill
-        reaper Mode
-        victory
-        defeat
-        
+    Template game_postprocess.lua modified for DF from BF6 version.
     
-]]--
-
--- fps config
+]]-- FPS Configuration 
 local get_fps = function()
-    return 4
+    return 5  -- Changed to more standard FPS
 end
 
 -- visual cues
@@ -49,96 +37,122 @@ local ocrConfig = {
     crops = {
         {
             cropName = "KillMessage",
-            debug = true,
-            cropCoords = { 0.391, 0.662, 0.605, 0.845 },
+            debug = false,
+            cropCoords = { 0.400, 0.660, 0.600, 0.825 }, -- Centered kill feed area
             detectorDilateDiameter = 3,
             detectorMinimumArea = 5,
             detectorMargin = 5,
-            recogniserStretchVertical = true,
+            recogniserStretchVertical = false,
+            restrictedCharacters = ""
+        },
+        {
+            cropName = "StreakMessage",
+            debug = false,
+            cropCoords = { 0.325, 0.125, 0.675, 0.225 }, -- Multi-kill/streek notification area
+            detectorDilateDiameter = 3,
+            detectorMinimumArea = 5,
+            detectorMargin = 5,
+            recogniserStretchVertical = false,
             restrictedCharacters = ""
         },
         {
             cropName = "GameResult",
-            debug = true,
-            cropCoords = { 0.281, 0.127, 0.705, 0.454 },
+            debug = false,
+            cropCoords = { 0.400, 0.225, 0.600, 0.375 }, -- Victory/Defeat screen
             detectorDilateDiameter = 5,
             detectorMinimumArea = 1000,
             detectorMargin = 30,
-            recogniserStretchVertical = true,
+            recogniserStretchVertical = false,
             restrictedCharacters = ""
         }
     }
 }
 
 local setEventsSpecs = function (cues)
-    -- Used in events functions ----------
-
-    --------------------------------------
-
     -- Events functions ------------------
-    -- every function in this section have to be in the functionsList
-    -- those functions return nil or an event name
-
     local killDetectors = {
-        { event = 'preciseLongShot',   match = { 'Precise Long Shot' }, score = 85 },
-        { event = 'longShot',          match = { 'Long Shot' },         score = 85 },
-        { event = 'quadraKill',        match = { 'Quadra Kill' },       score = 85 },
-        { event = 'tripleKill',        match = { 'Triple Kill' },       score = 85 },
-        { event = 'doubleKill',        match = { 'Double Kill' },       score = 85 },
-        { event = 'headshot',          match = { 'Headshot' },          score = 85 },
-        { event = 'kill',              match = { 'Kill' },              score = 80 }
+        { event = 'kill',              match = { 'KILL', 'ELIMINATED' },                       score = 85 },
+        { event = 'headshot',          match = { 'HEADSHOT', 'HS' },                           score = 80 },
+        { event = 'gadgetDestroyed',   match = { 'GADGET DESTROYED', 'DEVICE DESTROYED' },     score = 75 }
     }
-    local detectKill = function (frameIndex)
-        local event = nil
+    
+    local streakDetectors = {
+        { event = 'meleeKill',         match = { 'MELEE KILL', 'TAKEDOWN', 'KNIFE KILL' },     score = 80 },
+        { event = 'doubleKill',        match = { 'DOUBLE KILL' },                              score = 80 },
+        { event = 'tripleKill',        match = { 'TRIPLE KILL' },                              score = 80 },
+        { event = 'quadraKill',        match = { 'QUADRA KILL', 'QUADRUPLE KILL' },            score = 80 },
+        { event = 'reaperMode',        match = { 'REAPER MODE', 'MULTI KILL', 'KILLING SPREE', 'ULTRA KILL' }, score = 80 } 
+    }
+    
+    local function detectKill(frameIndex)
+        local detectedEvent = nil
 
+        -- First check for basic kill events
         for _, config in ipairs(killDetectors) do
             if paddle_ocr.checkFuture(frameIndex, 2, 'KillMessage', config.match, config.score) then
-                event = config.event
+                detectedEvent = config.event
+                break
             end
         end
 
-        return event, frameIndex - 2
+        -- If we found a kill, check for streak events in nearby frames
+        if detectedEvent ~= nil then 
+            for i = -2, 6 do  -- Check frames before and after
+                for _, config in ipairs(streakDetectors) do
+                    if paddle_ocr.checkValues(cues_data.cues['StreakMessage'].results[frameIndex + i], config.match, config.score) then
+                        detectedEvent = config.event
+                        break
+                    end
+                end
+            end
+        end
+
+        return detectedEvent, frameIndex - 2
     end
 
-
+    local squadWipeDetectors = { 'SQUAD WIPE', 'ENEMY SQUAD ELIMINATED', 'TEAM WIPE', 'SQUAD ELIMINATED' }
+    local function detectSquadWipe(frameIndex)
+        if paddle_ocr.checkFuture(frameIndex, 2, 'StreakMessage', squadWipeDetectors, 80) then
+            return 'squadWipe', frameIndex
+        end
+    end
 
     local endGameDetectors = {
-        { event = 'victory', match = { 'VICTORY' }, score = 70 },
-        { event = 'defeat',  match = { 'DEFEAT' },  score = 70 }
+        { event = 'victory', match = { 'VICTORY', 'MISSION SUCCESS', 'SUCCESS' }, score = 75 },
+        { event = 'defeat',  match = { 'DEFEAT', 'MISSION FAILED', 'FAILED' },    score = 75 }
     }
-    local function detectEndGame (frameIndex)
+    local function detectEndGame(frameIndex)
         for _, config in ipairs(endGameDetectors) do
             if paddle_ocr.checkFuture(frameIndex, 2, 'GameResult', config.match, config.score) then
-                return config.event
+                return config.event, frameIndex
             end
         end
     end
   
     --------------------------------------
 
-    -- list of the function used to identify events (used in events.computeEvents)
     local functionsList = {
-        detectKill, detectEndGame
+        detectKill, 
+        detectSquadWipe,
+        detectEndGame
     }
 
-    -- list of the events specs (used for events merging)
-    -- every event has to be listed in events specs
-    -- slack : number of consecutive frames that can be ignored when merging events
     local eventsSpecs = {
-        kill =                { name = "kill",                slack = 8  },
-        doubleKill =          { name = "doubleKill",          slack = 16 },
-        tripleKill =          { name = "tripleKill",          slack = 16 },
-        quadraKill =          { name = "quadraKill",          slack = 16 },
-        longShot =            { name = "longShot",            slack = 12 },
-        preciseLongShot =     { name = "preciseLongShot",     slack = 12 },
-        headshot =            { name = "headshot",            slack = 12 },
-        victory =             { name = "victory",             slack = 30 },
-        defeat =              { name = "defeat",              slack = 30 }
+        kill =              { name = "kill",              slack = 8  },
+        headshot =          { name = "headshot",          slack = 8  },
+        doubleKill =        { name = "doubleKill",        slack = 12 },
+        tripleKill =        { name = "tripleKill",        slack = 12 },
+        quadraKill =        { name = "quadraKill",        slack = 12 },
+        reaperMode =        { name = "reaperMode",        slack = 12 },
+        victory =           { name = "victory",           slack = 30 },
+        defeat =            { name = "defeat",            slack = 30 },
+        gadgetDestroyed =   { name = "gadgetDestroyed",   slack = 8  },
+        squadWipe =         { name = "squadWipe",         slack = 10 },
+        meleeKill =         { name = "meleeKill",         slack = 8  }
     }
 
     return eventsSpecs, functionsList
 end
-
 
 -- DO NOT EDIT BELOW THIS LINE -----------------------------------------------------------
 local get_paddle_ocr_config = function()
@@ -147,62 +161,41 @@ end
 
 -- compute events for both ocr and visual
 local computeEvents = function(modelOutputs, ocrOutput, frameTimes, paddleOcrOutput)
+    local cues = {}
 
-    local cues = {} -- table containing both ocr and visual cues
-
-    -- visual cues if modelOutputs is not empty
     if next(modelOutputs) ~= nil then
-        -- get smoothed visual cues
         local visualCues = smoothing.run(visualCuesConfig, modelOutputs, frameTimes)
-
-        -- add visual cues to cues
         for cueName, cueValues in pairs(visualCues) do
             cues[cueName] = cueValues
         end
     else
-        -- if model is ocr only we have to add the frametimes table to cues
-        -- smoothing.run add it to visual cues
         cues['frameTimes'] = frameTimes
     end
 
-    -- ocr cues if ocrOutput is not empty
     if next(ocrOutput) ~= nil then
-        -- add ocr cues to cues
         for cueName, cueValues in pairs(ocrOutput) do
             cues[cueName] = cueValues
         end
     end
 
-    -- ocr cues if paddleOcrOutput is not empty
     if next(paddleOcrOutput) ~= nil then
-        -- add ocr cues to cues
         for cueName, cueValues in pairs(paddleOcrOutput) do
             cues[cueName] = cueValues
-
-            -- Adding fake confidence for TCT display
             cueValues.confidences = {}
             for i, value in ipairs(cueValues.results) do
                 if value == nil or value:match("^%s*$") then
                     cueValues.confidences[i] = 0
                 else
-                    cueValues.confidences[i] = 0.5
+                    cueValues.confidences[i] = 0.7  -- Increased confidence for better detection
                 end
             end
         end
     end
 
-    -- get TCT data and add them in the result
     local result = utils.TCTformatCuesData(cues)
-
-    -- get everything needed for events detection
     local eventsSpecs, functionsList = setEventsSpecs(cues)
-
     cues_data.cues = cues
-
-    -- get detected events
     local eventsTable = event.computeEvents(cues, eventsSpecs, functionsList)
-
-    -- add events to the result
     result.events = eventsTable
 
     return result
