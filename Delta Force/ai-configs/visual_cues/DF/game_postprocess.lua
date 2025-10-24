@@ -22,7 +22,7 @@ local cues_data = require("postprocess.cues_data")
     Monitor Size : 2560x1440
     Game Resolution : 2560x1440
 
-    Template game_postprocess.lua modified for DF from BF6 version.
+    Modified for DF from BF6 game_postprocess.
     
 ]]-- FPS Configuration 
 local get_fps = function()
@@ -71,16 +71,18 @@ local ocrConfig = {
 local setEventsSpecs = function (cues)
     -- Events functions ------------------
     local killDetectors = {
-        { event = 'kill',              match = { 'KILL', 'ELIMINATED' },                       score = 85 },
-        { event = 'headshot',          match = { 'HEADSHOT', 'HS' },                           score = 80 },
-        { event = 'gadgetDestroyed',   match = { 'GADGET DESTROYED', 'DEVICE DESTROYED' },     score = 75 }
+        { event = 'preciselongshot',   match = { 'PRECISE LONG SHOT' },                score = 80 },
+        { event = 'longshot',          match = { 'LONG SHOT' },                        score = 80 },
+        { event = 'kill',              match = { 'KILL', 'ELIMINATED' },               score = 85 },
+        { event = 'headshot',          match = { 'HEADSHOT', 'HS' },                   score = 80 },
+        { event = 'gadgetDestroyed',   match = { 'GADGET DESTROYED', 'DEVICE DESTROYED' }, score = 75 }
     }
     
     local streakDetectors = {
-        { event = 'meleeKill',         match = { 'MELEE KILL', 'TAKEDOWN', 'KNIFE KILL' },     score = 80 },
-        { event = 'doubleKill',        match = { 'DOUBLE KILL' },                              score = 80 },
-        { event = 'tripleKill',        match = { 'TRIPLE KILL' },                              score = 80 },
-        { event = 'quadraKill',        match = { 'QUADRA KILL', 'QUADRUPLE KILL' },            score = 80 },
+        { event = 'meleeKill',         match = { 'MELEE KILL', 'TAKEDOWN', 'KNIFE KILL' }, score = 80 },
+        { event = 'doubleKill',        match = { 'DOUBLE KILL' },                      score = 80 },
+        { event = 'tripleKill',        match = { 'TRIPLE KILL' },                      score = 80 },
+        { event = 'quadraKill',        match = { 'QUADRA KILL', 'QUADRUPLE KILL' },    score = 80 },
         { event = 'reaperMode',        match = { 'REAPER MODE', 'MULTI KILL', 'KILLING SPREE', 'ULTRA KILL' }, score = 80 } 
     }
     
@@ -148,7 +150,9 @@ local setEventsSpecs = function (cues)
         defeat =            { name = "defeat",            slack = 30 },
         gadgetDestroyed =   { name = "gadgetDestroyed",   slack = 8  },
         squadWipe =         { name = "squadWipe",         slack = 10 },
-        meleeKill =         { name = "meleeKill",         slack = 8  }
+        meleeKill =         { name = "meleeKill",         slack = 8  },
+        longshot =          { name = "longshot",          slack = 8  },
+        preciselongshot =   { name = "preciselongshot",   slack = 8  }
     }
 
     return eventsSpecs, functionsList
