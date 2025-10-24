@@ -32,6 +32,52 @@
       }
     },
     {
+      "name": "kill",
+      "displayName": "Kill",
+      "icon": "fps-kill",
+      "default": true,
+      "tooltip": "When you kill an opponent.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "headshot",
+      "displayName": "Headshot",
+      "icon": "headshot",
+      "default": true,
+      "tooltip": "When you headshot an opponent.",
+      "eventScore": 15,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
       "name": "doubleKill",
       "displayName": "Double Kill",
       "icon": "double-kill",
@@ -101,16 +147,16 @@
       }
     },
     {
-      "name": "longShot",
-      "displayName": "Long Shot",
-      "icon": "long-range-kill",
+      "name": "reaperMode",
+      "displayName": "Reaper Mode",
+      "icon": "streak",
       "default": true,
-      "tooltip": "When you kill an enemy from a long distance.",
-      "eventScore": 30,
+      "tooltip": "When you kill 5 enemies or more within a short time of one another.",
+      "eventScore": 80,
       "automontage": {
         "primary": true,
         "secondary": false,
-        "offsetBefore": 3,
+        "offsetBefore": 2,
         "offsetAfter": 2,
         "effectTypes": [
           "greyDistortionArrow",
@@ -124,11 +170,11 @@
       }
     },
     {
-      "name": "headshot",
-      "displayName": "Headshot",
-      "icon": "headshot",
+      "name": "vehiculeDestroyed",
+      "displayName": "Vehicule Destroyed",
+      "icon": "vehicule-destroyed",
       "default": true,
-      "tooltip": "When you headshot an opponent.",
+      "tooltip": "When you destroyed an enemy vehicule.",
       "eventScore": 15,
       "automontage": {
         "primary": true,
@@ -147,16 +193,39 @@
       }
     },
     {
-      "name": "preciseLongShot",
-      "displayName": "Precise Long Shot",
-      "icon": "sniper-kill",
+      "name": "squadWipe",
+      "displayName": "Squad Wipe",
+      "icon": "kingslayer",
       "default": true,
-      "tooltip": "When you kill an enemy with a precise shot from a very long distance.",
+      "tooltip": "When you kill an entire enemy squad.",
+      "eventScore": 25,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      }
+    },
+    {
+      "name": "knifeKill",
+      "displayName": "Knife Kill",
+      "icon": "revenge-kill",
+      "default": true,
+      "tooltip": "When you kill an enemy hand to hand.",
       "eventScore": 50,
       "automontage": {
         "primary": true,
         "secondary": false,
-        "offsetBefore": 3,
+        "offsetBefore": 2,
         "offsetAfter": 2,
         "effectTypes": [
           "greyDistortionArrow",
