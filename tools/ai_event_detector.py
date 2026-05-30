@@ -311,7 +311,7 @@ class EventPatternDetector:
         with open(output_file, 'w') as f:
             json.dump(analysis_results, f, indent=2)
         
-        print("✅ AI analysis saved to " + output_file)
+        print("✅ AI analysis saved to " + str(output_file))
         return output_file
     
     def generate_lua_config(self, ai_config, game_name, game_code):
@@ -330,7 +330,7 @@ class EventPatternDetector:
     
     Detected Events: """ + str(len(ai_config['detected_events'])) + """ types
     Analysis Date: """ + ai_config['analysis_date'] + """
-    Game Type: """ + game_type + """
+    Game Type: """ + ai_config['game_type'] + """
     
     Features:
         - AI-optimized OCR detection regions
@@ -495,7 +495,7 @@ local ocrConfig = {
         events_file.write_text(json.dumps(events_json, indent=2))
         
         # Generate README
-        readme = self.generate_readme(ai_config, game_name, game_type)
+        readme = self.generate_readme(ai_config, game_name, ai_config['game_type'])
         readme_file = game_dir / "README.md"
         readme_file.write_text(readme)
         
@@ -690,7 +690,7 @@ The AI analyzed gameplay and detected the following events:
 
 """
         
-        for event_type, stats in ai_config['event_statistics'].items():
+        for event_type, stats in ai_config['detected_events'].items():
             readme += "- **" + event_type + "**: " + str(stats['count']) + " patterns detected, " + f"{stats['avg_confidence']:.1%}" + " confidence\n"
         
         readme += """
@@ -718,9 +718,9 @@ The AI analyzed gameplay and detected the following events:
 **Multi-kill Events:**
 """
         
-        if 'double_kill' in ai_config['event_statistics']:
+        if 'double_kill' in ai_config['detected_events']:
             readme += "- `doubleKill` - 2 quick eliminations\n"
-        if 'triple_kill' in ai_config['event_statistics']:
+        if 'triple_kill' in ai_config['detected_events']:
             readme += "- `tripleKill` - 3 quick eliminations\n"
         
         readme += """
@@ -747,7 +747,7 @@ cp -r """ + game_name + """ /path/to/powder/games/
 
 - **Powder Version:** 1.0.0 or later
 - **Resolution:** 2560x1440 (primary), 1920x1080 (secondary)
-readme += "**Game Type:** " + args.type + "\n"
+readme += "**Game Type:** " + ai_config['game_type'] + "\n"
 readme += "- **UI Scale:** 100% (1.0x)\n\n"
 
 ## 🎨 AI Optimization Details

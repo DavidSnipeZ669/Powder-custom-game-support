@@ -1,0 +1,134 @@
+{
+  "name": "TEST_GAME_",
+  "description": "Test Game AI",
+  "version": "1.0",
+  "resolution": "2560x1440",
+  "fps": 5,
+  "events": [
+    {
+      "name": "kill",
+      "displayName": "Kill",
+      "icon": "kill",
+      "default": true,
+      "tooltip": "When you kill.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "killZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "KILL",
+          "ELIMINATED",
+          "ELIMINATION",
+          "TAKEDOWN",
+          "DOWN"
+        ],
+        "confidenceThreshold": 80,
+        "cooldown": 5.0
+      }
+    },
+    {
+      "name": "headshot",
+      "displayName": "Headshot",
+      "icon": "headshot",
+      "default": true,
+      "tooltip": "When you headshot.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "headshotZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "HEADSHOT",
+          "HEADSHOT!",
+          "HS KILL",
+          "CRITICAL HIT"
+        ],
+        "confidenceThreshold": 85,
+        "cooldown": 5.0
+      }
+    },
+    {
+      "name": "double_kill",
+      "displayName": "Double kill",
+      "icon": "double_kill",
+      "default": true,
+      "tooltip": "When you double kill.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "double_killZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "DOUBLE KILL",
+          "DOUBLE ELIM",
+          "2 KILLS",
+          "MULTI KILL"
+        ],
+        "confidenceThreshold": 85,
+        "cooldown": 5.0
+      }
+    }
+  ],
+  "performance": {
+    "recommendedFPS": 5,
+    "minFPS": 3,
+    "maxFPS": 8,
+    "cpuUsage": "medium",
+    "gpuAcceleration": "recommended",
+    "memoryUsage": "500MB-1GB",
+    "optimalHardware": "Intel i5/Ryzen 5, 8GB RAM"
+  },
+  "calibration": {
+    "primaryResolution": "2560x1440",
+    "secondaryResolution": "1920x1080",
+    "aspectRatio": "16:9",
+    "uiScale": 1.0,
+    "notes": "AI-optimized configuration. Adjust OCR coordinates using the overlay tool for best results."
+  },
+  "ai_analysis": {
+    "analysis_date": "2026-05-30 17:21:20",
+    "detected_events": 4,
+    "confidence": "high",
+    "method": "pattern_detection"
+  }
+}

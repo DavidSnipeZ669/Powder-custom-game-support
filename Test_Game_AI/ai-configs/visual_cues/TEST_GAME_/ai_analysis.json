@@ -1,0 +1,103 @@
+{
+  "video_info": {
+    "path": "sample_Test Game AI.mp4",
+    "total_frames": 18000,
+    "fps": 60.0,
+    "duration": 300.0,
+    "sample_frames": 10
+  },
+  "frame_analyses": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 500,
+            "y": 800,
+            "width": 400,
+            "height": 50,
+            "aspect_ratio": 8.0,
+            "area": 20000
+          },
+          {
+            "x": 400,
+            "y": 50,
+            "width": 600,
+            "height": 80,
+            "aspect_ratio": 7.5,
+            "area": 48000
+          }
+        ],
+        "region_groups": [],
+        "region_count": 2
+      }
+    }
+  ],
+  "detected_events": {
+    "kill": [
+      {
+        "pattern": "KILL",
+        "confidence": 0.9,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.88,
+        "source": "pattern_match"
+      }
+    ],
+    "headshot": [
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.92,
+        "source": "pattern_match"
+      }
+    ],
+    "double_kill": [
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.87,
+        "source": "pattern_match"
+      }
+    ],
+    "victory": [
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.95,
+        "source": "pattern_match"
+      }
+    ]
+  },
+  "event_statistics": {
+    "kill": {
+      "count": 2,
+      "patterns": [
+        "KILL",
+        "ELIMINATED"
+      ],
+      "avg_confidence": 0.89
+    },
+    "headshot": {
+      "count": 1,
+      "patterns": [
+        "HEADSHOT"
+      ],
+      "avg_confidence": 0.92
+    },
+    "double_kill": {
+      "count": 1,
+      "patterns": [
+        "DOUBLE KILL"
+      ],
+      "avg_confidence": 0.87
+    },
+    "victory": {
+      "count": 1,
+      "patterns": [
+        "VICTORY"
+      ],
+      "avg_confidence": 0.95
+    }
+  }
+}
