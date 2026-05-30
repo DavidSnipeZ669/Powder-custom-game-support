@@ -1,0 +1,216 @@
+{
+  "name": "TEST_GAME",
+  "description": "Test Game",
+  "version": "1.0",
+  "resolution": "2560x1440",
+  "fps": 5,
+  "events": [
+    {
+      "name": "victory",
+      "displayName": "Victory",
+      "icon": "overall-victory",
+      "default": true,
+      "tooltip": "When your team wins the match.",
+      "eventScore": 50,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 4,
+        "offsetAfter": 4,
+        "effectTypes": [
+          "zoomInSlow",
+          "colorGradeWarm",
+          "victoryFanfare"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "VICTORY",
+          "MATCH WIN",
+          "ROUND WIN",
+          "SUCCESS"
+        ],
+        "confidenceThreshold": 80,
+        "cooldown": 30
+      }
+    },
+    {
+      "name": "defeat",
+      "displayName": "Defeat",
+      "icon": "overall-lose",
+      "default": false,
+      "tooltip": "When your team loses the match.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": false,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": [
+          "zoomOutSlow",
+          "colorGradeCool"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "DEFEAT",
+          "MATCH LOSS",
+          "ROUND LOSS",
+          "FAILED"
+        ],
+        "confidenceThreshold": 80,
+        "cooldown": 30
+      }
+    },
+    {
+      "name": "kill",
+      "displayName": "Kill",
+      "icon": "fps-kill",
+      "default": true,
+      "tooltip": "When you eliminate an enemy.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "KILL",
+          "ELIMINATED",
+          "TAKEDOWN"
+        ],
+        "confidenceThreshold": 90,
+        "cooldown": 1.5
+      }
+    },
+    {
+      "name": "headshot",
+      "displayName": "Headshot",
+      "icon": "headshot",
+      "default": true,
+      "tooltip": "When you eliminate an enemy with a headshot.",
+      "eventScore": 15,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "headshotZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "HEADSHOT",
+          "HS",
+          "HEAD SHOT"
+        ],
+        "confidenceThreshold": 88,
+        "cooldown": 2.0
+      }
+    },
+    {
+      "name": "doubleKill",
+      "displayName": "Double Kill",
+      "icon": "double-kill",
+      "default": true,
+      "tooltip": "When you eliminate 2 enemies quickly.",
+      "eventScore": 25,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "doubleKillZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "DOUBLE KILL",
+          "DOUBLE ELIMINATION"
+        ],
+        "confidenceThreshold": 88,
+        "cooldown": 4.0,
+        "window": 3.0
+      }
+    },
+    {
+      "name": "tripleKill",
+      "displayName": "Triple Kill",
+      "icon": "triple-kill",
+      "default": true,
+      "tooltip": "When you eliminate 3 enemies quickly.",
+      "eventScore": 40,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "tripleKillZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": [
+          "TRIPLE KILL",
+          "TRIPLE ELIMINATION"
+        ],
+        "confidenceThreshold": 88,
+        "cooldown": 5.0,
+        "window": 4.0
+      }
+    }
+  ],
+  "performance": {
+    "recommendedFPS": 5,
+    "minFPS": 3,
+    "maxFPS": 8,
+    "cpuUsage": "medium",
+    "gpuAcceleration": "recommended",
+    "memoryUsage": "500MB-1GB",
+    "optimalHardware": "Intel i5/Ryzen 5, 8GB RAM"
+  },
+  "calibration": {
+    "primaryResolution": "2560x1440",
+    "secondaryResolution": "1920x1080",
+    "aspectRatio": "16:9",
+    "uiScale": 1.0,
+    "notes": "Standard FPS configuration. Adjust OCR coordinates using the overlay tool for best results."
+  }
+}
