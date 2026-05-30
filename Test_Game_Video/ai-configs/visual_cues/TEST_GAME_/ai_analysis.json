@@ -1,0 +1,1591 @@
+{
+  "video_info": {
+    "path": "sample_gameplay.mp4",
+    "total_frames": 300,
+    "fps": 30.0,
+    "duration": 10.0,
+    "sample_frames": 10
+  },
+  "frame_analyses": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 1116,
+            "y": 30,
+            "width": 22,
+            "height": 13,
+            "aspect_ratio": 1.6923076923076923,
+            "area": 286
+          },
+          {
+            "x": 200,
+            "y": 26,
+            "width": 28,
+            "height": 16,
+            "aspect_ratio": 1.75,
+            "area": 448
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 43,
+            "height": 17,
+            "aspect_ratio": 2.5294117647058822,
+            "area": 731
+          },
+          {
+            "x": 1169,
+            "y": 25,
+            "width": 28,
+            "height": 18,
+            "aspect_ratio": 1.5555555555555556,
+            "area": 504
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 36,
+            "height": 18,
+            "aspect_ratio": 2.0,
+            "area": 648
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 200,
+                "y": 26,
+                "width": 28,
+                "height": 16,
+                "aspect_ratio": 1.75,
+                "area": 448
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 43,
+                "height": 17,
+                "aspect_ratio": 2.5294117647058822,
+                "area": 731
+              },
+              {
+                "x": 1169,
+                "y": 25,
+                "width": 28,
+                "height": 18,
+                "aspect_ratio": 1.5555555555555556,
+                "area": 504
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 36,
+                "height": 18,
+                "aspect_ratio": 2.0,
+                "area": 648
+              }
+            ]
+          ],
+          [
+            3,
+            [
+              {
+                "x": 1116,
+                "y": 30,
+                "width": 22,
+                "height": 13,
+                "aspect_ratio": 1.6923076923076923,
+                "area": 286
+              }
+            ]
+          ]
+        ],
+        "region_count": 5
+      }
+    },
+    {
+      "frame_index": 33,
+      "timestamp": 1.1,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 66,
+      "timestamp": 2.2,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 99,
+      "timestamp": 3.3,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 132,
+      "timestamp": 4.4,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 166,
+      "timestamp": 5.533333333333333,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 199,
+      "timestamp": 6.633333333333334,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 232,
+      "timestamp": 7.733333333333333,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    },
+    {
+      "frame_index": 265,
+      "timestamp": 8.833333333333334,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 721,
+            "y": 271,
+            "width": 23,
+            "height": 15,
+            "aspect_ratio": 1.5333333333333334,
+            "area": 345
+          },
+          {
+            "x": 721,
+            "y": 271,
+            "width": 23,
+            "height": 15,
+            "aspect_ratio": 1.5333333333333334,
+            "area": 345
+          }
+        ],
+        "region_groups": [
+          [
+            27,
+            [
+              {
+                "x": 721,
+                "y": 271,
+                "width": 23,
+                "height": 15,
+                "aspect_ratio": 1.5333333333333334,
+                "area": 345
+              },
+              {
+                "x": 721,
+                "y": 271,
+                "width": 23,
+                "height": 15,
+                "aspect_ratio": 1.5333333333333334,
+                "area": 345
+              }
+            ]
+          ]
+        ],
+        "region_count": 2
+      }
+    },
+    {
+      "frame_index": 299,
+      "timestamp": 9.966666666666667,
+      "analysis": {
+        "text_regions": [
+          {
+            "x": 199,
+            "y": 26,
+            "width": 31,
+            "height": 16,
+            "aspect_ratio": 1.9375,
+            "area": 496
+          },
+          {
+            "x": 80,
+            "y": 26,
+            "width": 59,
+            "height": 17,
+            "aspect_ratio": 3.4705882352941178,
+            "area": 1003
+          },
+          {
+            "x": 1080,
+            "y": 25,
+            "width": 35,
+            "height": 18,
+            "aspect_ratio": 1.9444444444444444,
+            "area": 630
+          }
+        ],
+        "region_groups": [
+          [
+            2,
+            [
+              {
+                "x": 199,
+                "y": 26,
+                "width": 31,
+                "height": 16,
+                "aspect_ratio": 1.9375,
+                "area": 496
+              },
+              {
+                "x": 80,
+                "y": 26,
+                "width": 59,
+                "height": 17,
+                "aspect_ratio": 3.4705882352941178,
+                "area": 1003
+              },
+              {
+                "x": 1080,
+                "y": 25,
+                "width": 35,
+                "height": 18,
+                "aspect_ratio": 1.9444444444444444,
+                "area": 630
+              }
+            ]
+          ]
+        ],
+        "region_count": 3
+      }
+    }
+  ],
+  "detected_events": {
+    "kill": [
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "ELIMINATED",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TAKEDOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOWN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      }
+    ],
+    "headshot": [
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEADSHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "HEAD SHOT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      }
+    ],
+    "double_kill": [
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DOUBLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      }
+    ],
+    "triple_kill": [
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE KILL",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "TRIPLE ELIMINATION",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      }
+    ],
+    "victory": [
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "VICTORY",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH WIN",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      }
+    ],
+    "defeat": [
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "DEFEAT",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      },
+      {
+        "pattern": "MATCH LOSS",
+        "confidence": 0.85,
+        "source": "pattern_match"
+      }
+    ]
+  },
+  "event_statistics": {
+    "kill": {
+      "count": 40,
+      "patterns": [
+        "TAKEDOWN",
+        "DOWN",
+        "KILL",
+        "ELIMINATED"
+      ],
+      "avg_confidence": 0.85
+    },
+    "headshot": {
+      "count": 30,
+      "patterns": [
+        "HEAD SHOT",
+        "HEADSHOT",
+        "HS"
+      ],
+      "avg_confidence": 0.85
+    },
+    "double_kill": {
+      "count": 20,
+      "patterns": [
+        "DOUBLE KILL",
+        "DOUBLE ELIMINATION"
+      ],
+      "avg_confidence": 0.85
+    },
+    "triple_kill": {
+      "count": 20,
+      "patterns": [
+        "TRIPLE KILL",
+        "TRIPLE ELIMINATION"
+      ],
+      "avg_confidence": 0.85
+    },
+    "victory": {
+      "count": 30,
+      "patterns": [
+        "WIN",
+        "VICTORY",
+        "MATCH WIN"
+      ],
+      "avg_confidence": 0.85
+    },
+    "defeat": {
+      "count": 30,
+      "patterns": [
+        "MATCH LOSS",
+        "LOSS",
+        "DEFEAT"
+      ],
+      "avg_confidence": 0.85
+    }
+  }
+}
