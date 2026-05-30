@@ -1,0 +1,525 @@
+{
+  "name": "BF6",
+  "description": "Battlefield 6 (2042) - Large-scale military FPS",
+  "version": "1.0",
+  "resolution": "2560x1440",
+  "fps": 5,
+  "events": [
+    {
+      "name": "victory",
+      "displayName": "Victory",
+      "icon": "overall-victory",
+      "default": true,
+      "tooltip": "When your team wins the match.",
+      "eventScore": 50,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 4,
+        "offsetAfter": 4,
+        "effectTypes": ["zoomInSlow", "colorGradeWarm", "victoryFanfare"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["VICTORY", "MATCH WIN", "ROUND WIN", "SUCCESS"],
+        "confidenceThreshold": 80,
+        "cooldown": 30
+      }
+    },
+    {
+      "name": "defeat",
+      "displayName": "Defeat",
+      "icon": "overall-lose",
+      "default": false,
+      "tooltip": "When your team loses the match.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": false,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["zoomOutSlow", "colorGradeCool"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["DEFEAT", "MATCH LOSS", "ROUND LOSS", "FAILED"],
+        "confidenceThreshold": 80,
+        "cooldown": 30
+      }
+    },
+    {
+      "name": "kill",
+      "displayName": "Kill",
+      "icon": "fps-kill",
+      "default": true,
+      "tooltip": "When you eliminate an enemy soldier.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "slowFastSlow",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["KILL", "ELIMINATED", "TAKEDOWN"],
+        "confidenceThreshold": 90,
+        "cooldown": 1.5
+      }
+    },
+    {
+      "name": "headshot",
+      "displayName": "Headshot",
+      "icon": "headshot",
+      "default": true,
+      "tooltip": "When you eliminate an enemy with a headshot.",
+      "eventScore": 15,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "headshotZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["HEADSHOT", "HS", "HEAD SHOT"],
+        "confidenceThreshold": 88,
+        "cooldown": 2.0
+      }
+    },
+    {
+      "name": "vehicleDestroy",
+      "displayName": "Vehicle Destroyed",
+      "icon": "vehicule-destroyed",
+      "default": true,
+      "tooltip": "When you destroy an enemy vehicle.",
+      "eventScore": 20,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 4,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "fastThenSlow",
+          "explosionShake",
+          "screenFlash",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["VEHICLE DESTROYED", "DESTROYED", "VEHICLE KILL"],
+        "confidenceThreshold": 85,
+        "cooldown": 3.0
+      }
+    },
+    {
+      "name": "vehicleDamage",
+      "displayName": "Vehicle Damage",
+      "icon": "vehicule-destroyed",
+      "default": false,
+      "tooltip": "When you deal significant damage to an enemy vehicle.",
+      "eventScore": 8,
+      "automontage": {
+        "primary": false,
+        "secondary": false,
+        "offsetBefore": 1,
+        "offsetAfter": 1,
+        "effectTypes": ["lensShake", "flashScope"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["VEHICLE DAMAGE", "CRITICAL DAMAGE", "DAMAGED"],
+        "confidenceThreshold": 82,
+        "cooldown": 2.0
+      }
+    },
+    {
+      "name": "roadkill",
+      "displayName": "Roadkill",
+      "icon": "vehicule-destroyed",
+      "default": true,
+      "tooltip": "When you run over an enemy with a vehicle.",
+      "eventScore": 18,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "roadkillZoom",
+          "intenseLensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["ROADKILL", "RUN OVER", "ROAD KILL"],
+        "confidenceThreshold": 85,
+        "cooldown": 3.0
+      }
+    },
+    {
+      "name": "doubleKill",
+      "displayName": "Double Kill",
+      "icon": "double-kill",
+      "default": true,
+      "tooltip": "When you eliminate 2 enemies in quick succession.",
+      "eventScore": 25,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "doubleKillZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["DOUBLE KILL", "DOUBLE ELIMINATION"],
+        "confidenceThreshold": 88,
+        "cooldown": 4.0,
+        "window": 3.0
+      }
+    },
+    {
+      "name": "tripleKill",
+      "displayName": "Triple Kill",
+      "icon": "triple-kill",
+      "default": true,
+      "tooltip": "When you eliminate 3 enemies in quick succession.",
+      "eventScore": 40,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "tripleKillZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["TRIPLE KILL", "TRIPLE ELIMINATION"],
+        "confidenceThreshold": 88,
+        "cooldown": 5.0,
+        "window": 4.0
+      }
+    },
+    {
+      "name": "quadraKill",
+      "displayName": "Quadra Kill",
+      "icon": "quadra-kill",
+      "default": true,
+      "tooltip": "When you eliminate 4 enemies in quick succession.",
+      "eventScore": 60,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 4,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "quadraKillZoom",
+          "intenseLensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["QUADRA KILL", "QUADRUPLE KILL", "QUAD ELIMINATION"],
+        "confidenceThreshold": 88,
+        "cooldown": 6.0,
+        "window": 5.0
+      }
+    },
+    {
+      "name": "reaperMode",
+      "displayName": "Reaper Mode",
+      "icon": "streak",
+      "default": true,
+      "tooltip": "When you eliminate 5+ enemies in quick succession.",
+      "eventScore": 80,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 3,
+        "offsetAfter": 5,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "reaperZoom",
+          "intenseLensShake",
+          "screenFlash",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["REAPER MODE", "MULTI KILL", "KILLING SPREE", "ULTRA KILL"],
+        "confidenceThreshold": 88,
+        "cooldown": 8.0,
+        "window": 6.0
+      }
+    },
+    {
+      "name": "objectiveCaptured",
+      "displayName": "Objective Captured",
+      "icon": "capture-point",
+      "default": true,
+      "tooltip": "When your team captures an objective.",
+      "eventScore": 20,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 3,
+        "offsetAfter": 3,
+        "effectTypes": ["zoomInMedium", "colorGradeTeam"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["OBJECTIVE CAPTURED", "POINT SECURED", "CAPTURED"],
+        "confidenceThreshold": 85,
+        "cooldown": 10.0
+      }
+    },
+    {
+      "name": "objectiveDefended",
+      "displayName": "Objective Defended",
+      "icon": "defend-point",
+      "default": true,
+      "tooltip": "When your team successfully defends an objective.",
+      "eventScore": 18,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["zoomInMedium", "colorGradeDefense"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["OBJECTIVE DEFENDED", "DEFENDED", "DEFENSE SUCCESSFUL"],
+        "confidenceThreshold": 85,
+        "cooldown": 8.0
+      }
+    },
+    {
+      "name": "objectiveDestroyed",
+      "displayName": "Objective Destroyed",
+      "icon": "destroy-objective",
+      "default": true,
+      "tooltip": "When your team destroys an enemy objective.",
+      "eventScore": 22,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": ["zoomInMedium", "explosionShake", "colorGradeDestruction"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["OBJECTIVE DESTROYED", "DESTROYED", "TARGET ELIMINATED"],
+        "confidenceThreshold": 85,
+        "cooldown": 12.0
+      }
+    },
+    {
+      "name": "flagCaptured",
+      "displayName": "Flag Captured",
+      "icon": "capture-point",
+      "default": true,
+      "tooltip": "When your team captures a flag in Conquest mode.",
+      "eventScore": 15,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["zoomInMedium", "colorGradeTeam"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["FLAG CAPTURED", "CAPTURED", "POINT TAKEN"],
+        "confidenceThreshold": 85,
+        "cooldown": 6.0
+      }
+    },
+    {
+      "name": "squadWipe",
+      "displayName": "Squad Wipe",
+      "icon": "kingslayer",
+      "default": true,
+      "tooltip": "When you eliminate an entire enemy squad.",
+      "eventScore": 25,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 4,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "squadWipeZoom",
+          "intenseLensShake",
+          "screenFlash",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["SQUAD WIPE", "ENEMY SQUAD ELIMINATED", "TEAM WIPE", "SQUAD ELIMINATION"],
+        "confidenceThreshold": 85,
+        "cooldown": 5.0,
+        "window": 4.0
+      }
+    },
+    {
+      "name": "squadRevive",
+      "displayName": "Squad Revive",
+      "icon": "revive",
+      "default": true,
+      "tooltip": "When you revive a teammate.",
+      "eventScore": 12,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 1,
+        "offsetAfter": 2,
+        "effectTypes": ["zoomInMedium", "healEffect"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["SQUAD REVIVE", "REVIVED", "TEAMMATE SAVED"],
+        "confidenceThreshold": 85,
+        "cooldown": 3.0
+      }
+    },
+    {
+      "name": "squadHeal",
+      "displayName": "Squad Heal",
+      "icon": "heal",
+      "default": true,
+      "tooltip": "When you heal a teammate.",
+      "eventScore": 10,
+      "automontage": {
+        "primary": false,
+        "secondary": false,
+        "offsetBefore": 1,
+        "offsetAfter": 1,
+        "effectTypes": ["healEffect"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["SQUAD HEAL", "HEALED", "TEAMMATE HEALTH RESTORED"],
+        "confidenceThreshold": 85,
+        "cooldown": 2.0
+      }
+    }
+  ],
+  "performance": {
+    "recommendedFPS": 5,
+    "minFPS": 3,
+    "maxFPS": 8,
+    "cpuUsage": "medium-high",
+    "gpuAcceleration": "recommended",
+    "memoryUsage": "500MB-1.5GB",
+    "optimalHardware": "Intel i7/Ryzen 7, 16GB RAM, Dedicated GPU"
+  },
+  "calibration": {
+    "primaryResolution": "2560x1440",
+    "secondaryResolution": "1920x1080",
+    "aspectRatio": "16:9",
+    "uiScale": 1.0,
+    "notes": "For best results, use 2560x1440 resolution with UI scale at 100%. Tested with Conquest, Breakthrough, and Hazard Zone modes."
+  },
+  "troubleshooting": {
+    "noEventsDetected": [
+      "Verify game resolution matches calibration (2560x1440)",
+      "Check OCR coordinates with overlay tool",
+      "Reduce confidence thresholds gradually (start with 75)",
+      "Test with Conquest mode (most consistent UI)"
+    ],
+    "falsePositives": [
+      "Increase confidence thresholds (try 85-90)",
+      "Add more specific match patterns",
+      "Adjust detectorMinimumArea (increase to 8-10)",
+      "Refine crop coordinates to exclude non-text areas"
+    ],
+    "performanceIssues": [
+      "Reduce FPS setting (try 3)",
+      "Decrease detectorDilateDiameter (try 3)",
+      "Increase detectorMinimumArea (try 10)",
+      "Enable GPU acceleration in Powder settings",
+      "Process shorter segments (5-minute chunks)"
+    ],
+    "specificEventsNotDetected": [
+      "Verify event appears in your game mode",
+      "Check match patterns in events.json",
+      "Adjust confidence threshold for specific event",
+      "Add alternative match patterns (e.g., abbreviations)"
+    ]
+  },
+  "gameModes": {
+    "Conquest": {
+      "supported": true,
+      "notes": "Best supported mode - consistent objective UI",
+      "recommended": true
+    },
+    "Breakthrough": {
+      "supported": true,
+      "notes": "Full support for objective-based events",
+      "recommended": true
+    },
+    "HazardZone": {
+      "supported": true,
+      "notes": "Basic combat events supported",
+      "recommended": false
+    },
+    "Portal": {
+      "supported": false,
+      "notes": "Custom modes may have different UI",
+      "recommended": false
+    }
+  }
+}

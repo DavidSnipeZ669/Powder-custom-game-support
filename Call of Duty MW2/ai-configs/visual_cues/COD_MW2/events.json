@@ -1,7 +1,7 @@
 {
-  "name": "DF",
-  "description": "Delta Force (2024) - Modern military FPS",
-  "version": "2.0",
+  "name": "COD_MW2",
+  "description": "Call of Duty: Modern Warfare II (2022)",
+  "version": "1.0",
   "resolution": "2560x1440",
   "fps": 5,
   "events": [
@@ -10,19 +10,20 @@
       "displayName": "Victory",
       "icon": "overall-victory",
       "default": true,
-      "tooltip": "When you win a match or complete an objective.",
+      "tooltip": "When your team wins the match.",
       "eventScore": 50,
       "automontage": {
         "primary": false,
         "secondary": true,
         "offsetBefore": 4,
         "offsetAfter": 4,
-        "effectTypes": ["zoomInSlow", "colorGradeWarm"]
+        "effectTypes": ["zoomInSlow", "colorGradeWarm", "victoryFanfare"]
       },
       "detection": {
         "method": "ocr",
-        "patterns": ["VICTORY", "MISSION SUCCESS", "ROUND WIN"],
-        "confidenceThreshold": 80
+        "patterns": ["VICTORY", "MATCH WIN", "ROUND WIN", "SUCCESS"],
+        "confidenceThreshold": 80,
+        "cooldown": 30
       }
     },
     {
@@ -30,19 +31,20 @@
       "displayName": "Defeat",
       "icon": "overall-lose",
       "default": false,
-      "tooltip": "When you lose a match or fail an objective.",
+      "tooltip": "When your team loses the match.",
       "eventScore": 10,
       "automontage": {
         "primary": false,
         "secondary": false,
         "offsetBefore": 2,
         "offsetAfter": 2,
-        "effectTypes": []
+        "effectTypes": ["zoomOutSlow", "colorGradeCool"]
       },
       "detection": {
         "method": "ocr",
-        "patterns": ["DEFEAT", "MISSION FAILED", "ROUND LOSS"],
-        "confidenceThreshold": 75
+        "patterns": ["DEFEAT", "MATCH LOSS", "ROUND LOSS", "FAILED"],
+        "confidenceThreshold": 80,
+        "cooldown": 30
       }
     },
     {
@@ -50,7 +52,7 @@
       "displayName": "Kill",
       "icon": "fps-kill",
       "default": true,
-      "tooltip": "When you eliminate an opponent.",
+      "tooltip": "When you eliminate an enemy.",
       "eventScore": 10,
       "automontage": {
         "primary": true,
@@ -70,7 +72,7 @@
       "detection": {
         "method": "ocr",
         "patterns": ["KILL", "ELIMINATED", "TAKEDOWN"],
-        "confidenceThreshold": 85,
+        "confidenceThreshold": 90,
         "cooldown": 1.5
       }
     },
@@ -79,7 +81,7 @@
       "displayName": "Headshot",
       "icon": "headshot",
       "default": true,
-      "tooltip": "When you eliminate an opponent with a headshot.",
+      "tooltip": "When you eliminate an enemy with a headshot.",
       "eventScore": 15,
       "automontage": {
         "primary": true,
@@ -104,12 +106,41 @@
       }
     },
     {
-      "name": "preciselongshot",
-      "displayName": "Precise Long Shot",
-      "icon": "headshot",
+      "name": "meleeKill",
+      "displayName": "Melee Kill",
+      "icon": "melee",
       "default": true,
-      "tooltip": "When you eliminate an opponent with a precise long-range shot.",
+      "tooltip": "When you eliminate an enemy with melee.",
       "eventScore": 12,
+      "automontage": {
+        "primary": true,
+        "secondary": false,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": [
+          "greyDistortionArrow",
+          "veryFastThenSlow",
+          "fastThenSlow",
+          "flashScope",
+          "meleeZoom",
+          "lensShake",
+          "backToColor"
+        ]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["MELEE", "KNIFE", "MELEE KILL", "KNIFE KILL"],
+        "confidenceThreshold": 85,
+        "cooldown": 2.5
+      }
+    },
+    {
+      "name": "execution",
+      "displayName": "Execution",
+      "icon": "execution",
+      "default": true,
+      "tooltip": "When you perform an execution kill.",
+      "eventScore": 13,
       "automontage": {
         "primary": true,
         "secondary": false,
@@ -120,24 +151,24 @@
           "veryFastThenSlow",
           "fastThenSlow",
           "flashScope",
-          "slowZoom",
+          "executionZoom",
           "lensShake",
           "backToColor"
         ]
       },
       "detection": {
         "method": "ocr",
-        "patterns": ["PRECISE LONG SHOT"],
+        "patterns": ["EXECUTION", "FINISHING MOVE", "FINISHER"],
         "confidenceThreshold": 85,
         "cooldown": 3.0
       }
     },
     {
-      "name": "longshot",
-      "displayName": "Long Shot",
-      "icon": "fps-kill",
+      "name": "pointBlank",
+      "displayName": "Point Blank",
+      "icon": "point-blank",
       "default": true,
-      "tooltip": "When you eliminate an opponent with a long-range shot.",
+      "tooltip": "When you eliminate an enemy at point blank range.",
       "eventScore": 11,
       "automontage": {
         "primary": true,
@@ -149,69 +180,14 @@
           "veryFastThenSlow",
           "fastThenSlow",
           "flashScope",
-          "slowFastSlow",
+          "pointBlankZoom",
           "lensShake",
           "backToColor"
         ]
       },
       "detection": {
         "method": "ocr",
-        "patterns": ["LONG SHOT"],
-        "confidenceThreshold": 85,
-        "cooldown": 2.5
-      }
-    },
-    {
-      "name": "gadgetDestroyed",
-      "displayName": "Gadget Destroyed",
-      "icon": "vehicule-destroyed",
-      "default": true,
-      "tooltip": "When you destroy enemy equipment or gadgets.",
-      "eventScore": 13,
-      "automontage": {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 1,
-        "offsetAfter": 2,
-        "effectTypes": [
-          "greyDistortionArrow",
-          "fastThenSlow",
-          "flashScope",
-          "explosionShake",
-          "backToColor"
-        ]
-      },
-      "detection": {
-        "method": "ocr",
-        "patterns": ["GADGET DESTROYED", "DEVICE DESTROYED", "EQUIPMENT DESTROYED"],
-        "confidenceThreshold": 82,
-        "cooldown": 2.0
-      }
-    },
-    {
-      "name": "meleeKill",
-      "displayName": "Melee Kill",
-      "icon": "revenge-kill",
-      "default": true,
-      "tooltip": "When you eliminate an opponent with melee combat.",
-      "eventScore": 18,
-      "automontage": {
-        "primary": true,
-        "secondary": false,
-        "offsetBefore": 1,
-        "offsetAfter": 2,
-        "effectTypes": [
-          "greyDistortionArrow",
-          "veryFastThenSlow",
-          "meleeZoom",
-          "bloodSplatter",
-          "lensShake",
-          "backToColor"
-        ]
-      },
-      "detection": {
-        "method": "ocr",
-        "patterns": ["MELEE KILL", "TAKEDOWN", "KNIFE KILL", "MELEE ELIMINATION"],
+        "patterns": ["POINT BLANK", "CLOSE QUARTERS", "CQC"],
         "confidenceThreshold": 85,
         "cooldown": 2.0
       }
@@ -221,7 +197,7 @@
       "displayName": "Double Kill",
       "icon": "double-kill",
       "default": true,
-      "tooltip": "When you eliminate 2 enemies in quick succession.",
+      "tooltip": "When you eliminate 2 enemies quickly.",
       "eventScore": 25,
       "automontage": {
         "primary": true,
@@ -251,7 +227,7 @@
       "displayName": "Triple Kill",
       "icon": "triple-kill",
       "default": true,
-      "tooltip": "When you eliminate 3 enemies in quick succession.",
+      "tooltip": "When you eliminate 3 enemies quickly.",
       "eventScore": 40,
       "automontage": {
         "primary": true,
@@ -281,7 +257,7 @@
       "displayName": "Quadra Kill",
       "icon": "quadra-kill",
       "default": true,
-      "tooltip": "When you eliminate 4 enemies in quick succession.",
+      "tooltip": "When you eliminate 4 enemies quickly.",
       "eventScore": 60,
       "automontage": {
         "primary": true,
@@ -307,11 +283,11 @@
       }
     },
     {
-      "name": "reaperMode",
-      "displayName": "Reaper Mode",
+      "name": "killChain",
+      "displayName": "Kill Chain",
       "icon": "streak",
       "default": true,
-      "tooltip": "When you eliminate 5+ enemies in quick succession.",
+      "tooltip": "When you eliminate 5+ enemies quickly.",
       "eventScore": 80,
       "automontage": {
         "primary": true,
@@ -323,7 +299,7 @@
           "veryFastThenSlow",
           "fastThenSlow",
           "flashScope",
-          "reaperZoom",
+          "killChainZoom",
           "intenseLensShake",
           "screenFlash",
           "backToColor"
@@ -331,73 +307,182 @@
       },
       "detection": {
         "method": "ocr",
-        "patterns": ["REAPER MODE", "MULTI KILL", "KILLING SPREE", "ULTRA KILL", "MONSTER KILL"],
+        "patterns": ["KILL CHAIN", "KILLSTREAK", "MULTI KILL", "ULTRA KILL"],
         "confidenceThreshold": 88,
         "cooldown": 8.0,
         "window": 6.0
       }
     },
     {
-      "name": "squadWipe",
-      "displayName": "Squad Wipe",
-      "icon": "kingslayer",
+      "name": "uav",
+      "displayName": "UAV",
+      "icon": "uav",
       "default": true,
-      "tooltip": "When you eliminate an entire enemy squad.",
+      "tooltip": "When you call in a UAV.",
+      "eventScore": 20,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": ["zoomInMedium", "uavEffect"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["UAV", "RECON DRONE", "UAV ACTIVE"],
+        "confidenceThreshold": 85,
+        "cooldown": 15.0
+      }
+    },
+    {
+      "name": "cruiseMissile",
+      "displayName": "Cruise Missile",
+      "icon": "cruise-missile",
+      "default": true,
+      "tooltip": "When you call in a cruise missile.",
+      "eventScore": 25,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 4,
+        "effectTypes": ["zoomInMedium", "missileEffect", "explosionShake"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["CRUISE MISSILE", "MISSILE STRIKE"],
+        "confidenceThreshold": 85,
+        "cooldown": 20.0
+      }
+    },
+    {
+      "name": "gunship",
+      "displayName": "Gunship",
+      "icon": "gunship",
+      "default": true,
+      "tooltip": "When you call in a gunship.",
       "eventScore": 30,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 3,
+        "offsetAfter": 5,
+        "effectTypes": ["zoomInMedium", "gunshipEffect", "intenseLensShake"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["GUNSHIP", "AC130", "HELICOPTER SUPPORT"],
+        "confidenceThreshold": 85,
+        "cooldown": 25.0
+      }
+    },
+    {
+      "name": "nuke",
+      "displayName": "Tactical Nuke",
+      "icon": "nuke",
+      "default": true,
+      "tooltip": "When you call in a tactical nuke.",
+      "eventScore": 100,
       "automontage": {
         "primary": true,
         "secondary": false,
-        "offsetBefore": 2,
-        "offsetAfter": 4,
+        "offsetBefore": 5,
+        "offsetAfter": 10,
         "effectTypes": [
           "greyDistortionArrow",
           "veryFastThenSlow",
-          "squadWipeZoom",
+          "nukeZoom",
           "intenseLensShake",
           "screenFlash",
+          "nukeEffect",
           "backToColor"
         ]
       },
       "detection": {
         "method": "ocr",
-        "patterns": ["SQUAD WIPE", "ENEMY SQUAD ELIMINATED", "TEAM WIPE", "SQUAD ELIMINATION", "FULL TEAM ELIMINATION"],
+        "patterns": ["NUKE", "TACTICAL NUKE", "NUKE INCOMING"],
         "confidenceThreshold": 85,
-        "cooldown": 5.0,
-        "window": 4.0
+        "cooldown": 30.0
+      }
+    },
+    {
+      "name": "flagCaptured",
+      "displayName": "Flag Captured",
+      "icon": "capture-point",
+      "default": true,
+      "tooltip": "When your team captures a flag.",
+      "eventScore": 15,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 2,
+        "effectTypes": ["zoomInMedium", "colorGradeTeam"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["FLAG CAPTURED", "CAPTURED", "POINT TAKEN"],
+        "confidenceThreshold": 85,
+        "cooldown": 6.0
+      }
+    },
+    {
+      "name": "bombPlanted",
+      "displayName": "Bomb Planted",
+      "icon": "bomb-planted",
+      "default": true,
+      "tooltip": "When your team plants the bomb.",
+      "eventScore": 18,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": ["zoomInMedium", "bombEffect"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["BOMB PLANTED", "PLANTED", "BOMB SET"],
+        "confidenceThreshold": 85,
+        "cooldown": 8.0
+      }
+    },
+    {
+      "name": "bombDefused",
+      "displayName": "Bomb Defused",
+      "icon": "bomb-defused",
+      "default": true,
+      "tooltip": "When your team defuses the bomb.",
+      "eventScore": 18,
+      "automontage": {
+        "primary": false,
+        "secondary": true,
+        "offsetBefore": 2,
+        "offsetAfter": 3,
+        "effectTypes": ["zoomInMedium", "defuseEffect"]
+      },
+      "detection": {
+        "method": "ocr",
+        "patterns": ["BOMB DEFUSED", "DEFUSED", "BOMB DISARMED"],
+        "confidenceThreshold": 85,
+        "cooldown": 8.0
       }
     }
   ],
   "performance": {
     "recommendedFPS": 5,
     "minFPS": 3,
-    "maxFPS": 10,
-    "cpuUsage": "medium",
-    "gpuAcceleration": "recommended"
+    "maxFPS": 8,
+    "cpuUsage": "medium-high",
+    "gpuAcceleration": "recommended",
+    "memoryUsage": "500MB-1.5GB",
+    "optimalHardware": "Intel i7/Ryzen 7, 16GB RAM, Dedicated GPU"
   },
   "calibration": {
-    "resolution": "2560x1440",
+    "primaryResolution": "2560x1440",
+    "secondaryResolution": "1920x1080",
     "aspectRatio": "16:9",
     "uiScale": 1.0,
-    "notes": "For best results, run Delta Force at native 2560x1440 resolution with UI scale set to 100%."
-  },
-  "troubleshooting": {
-    "noEventsDetected": [
-      "Check game resolution matches calibration",
-      "Verify OCR coordinates with overlay tool",
-      "Adjust detector parameters (dilateDiameter, minimumArea)",
-      "Increase confidence thresholds gradually"
-    ],
-    "falsePositives": [
-      "Increase confidence thresholds",
-      "Add more specific match patterns",
-      "Adjust cooldown periods",
-      "Refine crop coordinates"
-    ],
-    "performanceIssues": [
-      "Reduce FPS setting",
-      "Decrease detectorDilateDiameter",
-      "Increase detectorMinimumArea",
-      "Enable GPU acceleration if available"
-    ]
+    "notes": "For best results, use 2560x1440 resolution with UI scale at 100%. Tested with Multiplayer and Ranked modes."
   }
 }
