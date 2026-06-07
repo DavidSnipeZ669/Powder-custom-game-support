@@ -1,0 +1,11 @@
+{
+  "name": "powder-game-manager",
+  "version": "1.0.0",
+  "description": "Game Manager for Powder custom game support",
+  "main": "game-manager/server.js",
+  "scripts": {
+    "start": "node game-manager/server.js"
+  },
+  "dependencies": {},
+  "license": "MIT"
+}
